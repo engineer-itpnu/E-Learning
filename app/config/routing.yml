@@ -1,0 +1,4 @@
+edu_eleraning:
+    resource: "@EduEleraningBundle/Resources/config/routing.yml"
+    prefix:   /
+

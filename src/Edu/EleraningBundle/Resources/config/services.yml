@@ -1,0 +1,7 @@
+parameters:
+#    edu_eleraning.example.class: Edu\EleraningBundle\Example
+
+services:
+#    edu_eleraning.example:
+#        class: %edu_eleraning.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
