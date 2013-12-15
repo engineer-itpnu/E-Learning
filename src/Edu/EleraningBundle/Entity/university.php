@@ -49,6 +49,16 @@ class university
      */
     private $enddate;
 
+    /**
+     * @ORM\OneToOne(targetEntity="financial", inversedBy="university")
+     * @ORM\JoinColumn(name="financialid", referencedColumnName="id", nullable=false)
+     */
+    private $financiales;
+
+    /**
+     * @ORM\OneToMany(targetEntity="user", mappedBy="university")
+     */
+    private $useres;
 
     /**
      * Get id
@@ -150,5 +160,69 @@ class university
     public function getEnddate()
     {
         return $this->enddate;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->useres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set financiales
+     *
+     * @param \Edu\EleraningBundle\Entity\financial $financiales
+     * @return university
+     */
+    public function setFinanciales(\Edu\EleraningBundle\Entity\financial $financiales)
+    {
+        $this->financiales = $financiales;
+
+        return $this;
+    }
+
+    /**
+     * Get financiales
+     *
+     * @return \Edu\EleraningBundle\Entity\financial 
+     */
+    public function getFinanciales()
+    {
+        return $this->financiales;
+    }
+
+    /**
+     * Add useres
+     *
+     * @param \Edu\EleraningBundle\Entity\user $useres
+     * @return university
+     */
+    public function addUsere(\Edu\EleraningBundle\Entity\user $useres)
+    {
+        $this->useres[] = $useres;
+
+        return $this;
+    }
+
+    /**
+     * Remove useres
+     *
+     * @param \Edu\EleraningBundle\Entity\user $useres
+     */
+    public function removeUsere(\Edu\EleraningBundle\Entity\user $useres)
+    {
+        $this->useres->removeElement($useres);
+    }
+
+    /**
+     * Get useres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUseres()
+    {
+        return $this->useres;
     }
 }

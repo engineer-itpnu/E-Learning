@@ -50,9 +50,33 @@ class user extends BaseUser
      */
     private $melicode;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="university", inversedBy="user")
+     * @ORM\JoinColumn(name="university_id", referencedColumnName="id")
+     */
+    protected $universities;
+
+    /**
+     * @ORM\OneToMany(targetEntity="comment", mappedBy="user")
+     */
+    private $commentes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="memo", mappedBy="user")
+     */
+    private $memoes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="studentlesson", inversedBy="user")
+     * @ORM\JoinColumn(name="studentlesson_id", referencedColumnName="id")
+     */
+    protected $studentlesson;
+
     public function __construct()
     {
         parent::__construct();
+        $this->commentes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->memoes = new \Doctrine\Common\Collections\ArrayCollection();
         // your own logic
     }
     /**
@@ -157,5 +181,138 @@ class user extends BaseUser
         return $this->melicode;
     }
 
+    /**
+     * Set lname
+     *
+     * @param string $lname
+     * @return user
+     */
+    public function setLname($lname)
+    {
+        $this->lname = $lname;
 
+        return $this;
+    }
+
+    /**
+     * Get lname
+     *
+     * @return string 
+     */
+    public function getLname()
+    {
+        return $this->lname;
+    }
+
+    /**
+     * Set universities
+     *
+     * @param \Edu\EleraningBundle\Entity\university $universities
+     * @return user
+     */
+    public function setUniversities(\Edu\EleraningBundle\Entity\university $universities = null)
+    {
+        $this->universities = $universities;
+
+        return $this;
+    }
+
+    /**
+     * Get universities
+     *
+     * @return \Edu\EleraningBundle\Entity\university 
+     */
+    public function getUniversities()
+    {
+        return $this->universities;
+    }
+
+    /**
+     * Add commentes
+     *
+     * @param \Edu\EleraningBundle\Entity\comment $commentes
+     * @return user
+     */
+    public function addCommente(\Edu\EleraningBundle\Entity\comment $commentes)
+    {
+        $this->commentes[] = $commentes;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentes
+     *
+     * @param \Edu\EleraningBundle\Entity\comment $commentes
+     */
+    public function removeCommente(\Edu\EleraningBundle\Entity\comment $commentes)
+    {
+        $this->commentes->removeElement($commentes);
+    }
+
+    /**
+     * Get commentes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentes()
+    {
+        return $this->commentes;
+    }
+
+    /**
+     * Add memoes
+     *
+     * @param \Edu\EleraningBundle\Entity\memo $memoes
+     * @return user
+     */
+    public function addMemo(\Edu\EleraningBundle\Entity\memo $memoes)
+    {
+        $this->memoes[] = $memoes;
+
+        return $this;
+    }
+
+    /**
+     * Remove memoes
+     *
+     * @param \Edu\EleraningBundle\Entity\memo $memoes
+     */
+    public function removeMemo(\Edu\EleraningBundle\Entity\memo $memoes)
+    {
+        $this->memoes->removeElement($memoes);
+    }
+
+    /**
+     * Get memoes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMemoes()
+    {
+        return $this->memoes;
+    }
+
+    /**
+     * Set studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     * @return user
+     */
+    public function setStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson = null)
+    {
+        $this->studentlesson = $studentlesson;
+
+        return $this;
+    }
+
+    /**
+     * Get studentlesson
+     *
+     * @return \Edu\EleraningBundle\Entity\studentlesson 
+     */
+    public function getStudentlesson()
+    {
+        return $this->studentlesson;
+    }
 }

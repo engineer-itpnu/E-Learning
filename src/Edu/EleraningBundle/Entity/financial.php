@@ -49,6 +49,19 @@ class financial
      */
     private $explanation;
 
+    /**
+     * @ORM\OneToOne(targetEntity="university", inversedBy="financial")
+     * @ORM\JoinColumn(name="universityid", referencedColumnName="id", nullable=false)
+     */
+    private $universites;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->universites = new \Doctrine\Common\Collections\ArrayCollection();
+        // your own logic
+    }
+
 
     /**
      * Get id
@@ -150,5 +163,28 @@ class financial
     public function getExplanation()
     {
         return $this->explanation;
+    }
+
+    /**
+     * Set universites
+     *
+     * @param \Edu\EleraningBundle\Entity\university $universites
+     * @return financial
+     */
+    public function setUniversites(\Edu\EleraningBundle\Entity\university $universites)
+    {
+        $this->universites = $universites;
+
+        return $this;
+    }
+
+    /**
+     * Get universites
+     *
+     * @return \Edu\EleraningBundle\Entity\university 
+     */
+    public function getUniversites()
+    {
+        return $this->universites;
     }
 }

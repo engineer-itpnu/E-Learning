@@ -35,6 +35,18 @@ class grouplesson
      */
     private $explaination;
 
+    /**
+     * @ORM\OneToMany(targetEntity="lesson", mappedBy="grouplesson")
+     */
+    private $lessones;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->lessones = new \Doctrine\Common\Collections\ArrayCollection();
+        // your own logic
+    }
+
 
     /**
      * Get id
@@ -90,5 +102,38 @@ class grouplesson
     public function getExplaination()
     {
         return $this->explaination;
+    }
+
+    /**
+     * Add lessones
+     *
+     * @param \Edu\EleraningBundle\Entity\lesson $lessones
+     * @return grouplesson
+     */
+    public function addLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
+    {
+        $this->lessones[] = $lessones;
+
+        return $this;
+    }
+
+    /**
+     * Remove lessones
+     *
+     * @param \Edu\EleraningBundle\Entity\lesson $lessones
+     */
+    public function removeLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
+    {
+        $this->lessones->removeElement($lessones);
+    }
+
+    /**
+     * Get lessones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLessones()
+    {
+        return $this->lessones;
     }
 }

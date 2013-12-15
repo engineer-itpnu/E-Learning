@@ -63,6 +63,17 @@ class post
      */
     private $touser;
 
+    /**
+     * @ORM\OneToMany(targetEntity="comment", mappedBy="post")
+     */
+    private $commentes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=false)
+     */
+    private $useres;
+
 
     /**
      * Get id
@@ -210,5 +221,69 @@ class post
     public function getTouser()
     {
         return $this->touser;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->commentes = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add commentes
+     *
+     * @param \Edu\EleraningBundle\Entity\comment $commentes
+     * @return post
+     */
+    public function addCommente(\Edu\EleraningBundle\Entity\comment $commentes)
+    {
+        $this->commentes[] = $commentes;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentes
+     *
+     * @param \Edu\EleraningBundle\Entity\comment $commentes
+     */
+    public function removeCommente(\Edu\EleraningBundle\Entity\comment $commentes)
+    {
+        $this->commentes->removeElement($commentes);
+    }
+
+    /**
+     * Get commentes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCommentes()
+    {
+        return $this->commentes;
+    }
+
+    /**
+     * Set useres
+     *
+     * @param \Edu\EleraningBundle\Entity\user $useres
+     * @return post
+     */
+    public function setUseres(\Edu\EleraningBundle\Entity\user $useres)
+    {
+        $this->useres = $useres;
+
+        return $this;
+    }
+
+    /**
+     * Get useres
+     *
+     * @return \Edu\EleraningBundle\Entity\user 
+     */
+    public function getUseres()
+    {
+        return $this->useres;
     }
 }

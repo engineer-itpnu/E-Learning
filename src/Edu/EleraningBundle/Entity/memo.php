@@ -44,6 +44,13 @@ class memo
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=false)
+     */
+    private $useres;
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -120,5 +127,30 @@ class memo
     public function getDate()
     {
         return $this->date;
+    }
+
+
+
+    /**
+     * Set useres
+     *
+     * @param \Edu\EleraningBundle\Entity\user $useres
+     * @return memo
+     */
+    public function setUseres(\Edu\EleraningBundle\Entity\user $useres)
+    {
+        $this->useres = $useres;
+
+        return $this;
+    }
+
+    /**
+     * Get useres
+     *
+     * @return \Edu\EleraningBundle\Entity\user 
+     */
+    public function getUseres()
+    {
+        return $this->useres;
     }
 }

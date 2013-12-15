@@ -35,6 +35,18 @@ class comment
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="post", inversedBy="comment")
+     * @ORM\JoinColumn(name="postid", referencedColumnName="id", nullable=false)
+     */
+    private $postes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="comment")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=false)
+     */
+    private $useres;
+
 
     /**
      * Get id
@@ -90,5 +102,51 @@ class comment
     public function getDate()
     {
         return $this->date;
+    }
+
+    /**
+     * Set postes
+     *
+     * @param \Edu\EleraningBundle\Entity\post $postes
+     * @return comment
+     */
+    public function setPostes(\Edu\EleraningBundle\Entity\post $postes)
+    {
+        $this->postes = $postes;
+
+        return $this;
+    }
+
+    /**
+     * Get postes
+     *
+     * @return \Edu\EleraningBundle\Entity\post 
+     */
+    public function getPostes()
+    {
+        return $this->postes;
+    }
+
+    /**
+     * Set useres
+     *
+     * @param \Edu\EleraningBundle\Entity\user $useres
+     * @return comment
+     */
+    public function setUseres(\Edu\EleraningBundle\Entity\user $useres)
+    {
+        $this->useres = $useres;
+
+        return $this;
+    }
+
+    /**
+     * Get useres
+     *
+     * @return \Edu\EleraningBundle\Entity\user 
+     */
+    public function getUseres()
+    {
+        return $this->useres;
     }
 }

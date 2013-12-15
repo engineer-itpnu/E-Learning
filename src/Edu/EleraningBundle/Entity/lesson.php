@@ -35,6 +35,17 @@ class lesson
      */
     private $password;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="grouplesson", inversedBy="lessones")
+     * @ORM\JoinColumn(name="groupid", referencedColumnName="id", nullable=false)
+     */
+    private $grouplesson;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="studentlesson", inversedBy="lesson")
+     * @ORM\JoinColumn(name="groupid", referencedColumnName="id", nullable=false)
+     */
+    private $studentlesson;
 
     /**
      * Get id
@@ -90,5 +101,53 @@ class lesson
     public function getPassword()
     {
         return $this->password;
+    }
+
+
+
+    /**
+     * Set grouplesson
+     *
+     * @param \Edu\EleraningBundle\Entity\grouplesson $grouplesson
+     * @return lesson
+     */
+    public function setGrouplesson(\Edu\EleraningBundle\Entity\grouplesson $grouplesson)
+    {
+        $this->grouplesson = $grouplesson;
+
+        return $this;
+    }
+
+    /**
+     * Get grouplesson
+     *
+     * @return \Edu\EleraningBundle\Entity\grouplesson 
+     */
+    public function getGrouplesson()
+    {
+        return $this->grouplesson;
+    }
+
+    /**
+     * Set studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     * @return lesson
+     */
+    public function setStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
+    {
+        $this->studentlesson = $studentlesson;
+
+        return $this;
+    }
+
+    /**
+     * Get studentlesson
+     *
+     * @return \Edu\EleraningBundle\Entity\studentlesson 
+     */
+    public function getStudentlesson()
+    {
+        return $this->studentlesson;
     }
 }
