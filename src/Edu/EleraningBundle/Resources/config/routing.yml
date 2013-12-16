@@ -1,6 +1,9 @@
 edu_eleraning_homepage:
     pattern:  /
     defaults: { _controller: EduEleraningBundle:Default:index }
+main:
+    pattern:  /main
+    defaults: { _controller: EduEleraningBundle:Default:main }
 
 admin:
     resource: "@EduEleraningBundle/Resources/config/Admin/routing.yml"

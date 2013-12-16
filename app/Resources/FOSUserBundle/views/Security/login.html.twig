@@ -1,24 +1,62 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends 'EduEleraningBundle::main.html.twig' %}
 
-{% trans_default_domain 'FOSUserBundle' %}
 
 {% block fos_user_content %}
-{% if error %}
-    <div>{{ error|trans }}</div>
-{% endif %}
+    {% block title %} <title>سیستم رزرواسیون هتل</title>{% endblock %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% block stylesheet %}
+        <style type="text/css">
+            .form {
+                margin: 95px auto 0px auto;
+                overflow: auto;
+                padding-top: 40px;
+                direction: rtl;
+            }
+            form {
+                padding:  0 30px;
+            }
+        </style>
+    {% endblock %}
+    {% block body %}
+        <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+            {% if error %}
+                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
+            {% endif %}
+        </div>
+        <div class="form" style="background-color: #a9302a; width: 480px;height: 280px;text-align: right;">
+            <form  action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal"><table>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                    <img src="{{ asset('bundles/assets/img/Login.png') }}" class="img-circle" style="margin-bottom: -70px;">
+                    <div class="control-group" ><tr>
+                            <td><label class="control-label  label label-important" for="username" style="text-align: center">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label></td>
+                            <div class="controls">
+                                <td><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="نام کاربری"></td><td><i class="icon-user"></i></td>
+                            </div>
+                        </tr></div>
+                    <div class="control-group"><tr>
+                            <td><label class="control-label label label-important" for="password" style="text-align: center">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label></td>
+                            <div class="controls">
+                                <td> <input type="password" id="password" name="_password" required="required" placeholder="کلمه عبور"></td><td><i class="icon-qrcode"></i></td>
+                            </div>
+                        </tr></div>
+                    <div class="control-group"><tr>
+                            <div class="controls">
+                                <td><label class="checkbox label label-important" for="remember_me">
+                                        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />                                    </label></td></tr>
+                        <tr><td style="position: absolute; margin-right: 170px;"><input type="submit" id="_submit" name="_submit" class="btn btn-large btn-primary"value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/></td></tr>
+                    </div>
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" />
-
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+        </div></table>
+        </form>
+        </div>
+    {% endblock %}
 {% endblock fos_user_content %}

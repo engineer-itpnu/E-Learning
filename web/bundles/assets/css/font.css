@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'BTraffic';
+    src:url('../../assets/fonts/BTraffic.eot') format('eot'),
+    url('../../assets/fonts/BTraffic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'yekan';
+    src:url('../../assets/fonts/BYekan.eot') format('eot'),
+    url('../../assets/fonts/BYekan.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BBaran';
+    src:url('../../assets/fonts/BBaran.eot') format('eot'),
+    url('../../assets/fonts/BBaran.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BFerdosi';
+    src:url('../../assets/fonts/BFerdosi.eot') format('eot'),
+    url('../../assets/fonts/BFerdosi.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BMitra';
+    src:url('../../assets/fonts/BMitra.eot') format('eot'),
+    url('../../assets/fonts/BMitra.ttf') format('truetype');
+}

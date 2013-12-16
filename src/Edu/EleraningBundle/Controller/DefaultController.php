@@ -10,4 +10,9 @@ class DefaultController extends Controller
     {
         return $this->render('EduEleraningBundle:Default:index.html.twig');
     }
+
+    public function mainAction()
+    {
+        return $this->render('EduEleraningBundle::main.html.twig');
+    }
 }
