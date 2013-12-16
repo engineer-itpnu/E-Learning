@@ -1,1 +1,219 @@
-Hello {{ name }}!
+{% extends "EduEleraningBundle::layout.html.twig" %}
+{% block Body %}
+    <div class="container-fluid">
+    <div class="row-fluid">
+    <!-- MAIN CONTENT
+    ================================================== -->
+    <div class="span9">
+        <!-- HOME SECTION
+        ================================================== -->
+        <section id="home">
+            <div class="hero-unit" style="padding-left: 50px;">
+                <div class="slider-wrapper theme-default">
+                    <div id="slider" class="nivoSlider">
+                        <!-- Slider items here-->
+                        <a  style="font-family: yekan" href="#"><img src="{{ asset("bundles/elearningmain/img/homeslides/slide1.jpg") }}" alt="" title="! به سامانه آموزش مجازی دروس دانشگاهی خوش آمدید"></a>
+                        <a href="#"><img src="{{ asset("bundles/elearningmain/img/homeslides/slide2.jpg") }}" alt="" title="! به راحتی دروس خود را انتخاب، ویرایش و حدف نمایید"/></a>
+                        <a href="#"><img src="{{ asset("bundles/elearningmain/img/homeslides/slide3.jpg") }}" alt="" title="! کافی است ثبت نام کنید"/></a>
+                    </div>
+                    <!-- Some shadow--><img src="{{ asset("bundles/elearningmain/img/shadow.png") }}"  alt="" class="shadowslider">
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION
+        ================================================== -->
+        <section id="about">
+            <div class="hero-unittext">
+                <h1>- A picture is worth a thousand words -</h1>
+                <h2>and that's why you should <span class="highlighthero">hire me</span></h2>
+            </div>
+            <div class="row-fluid">
+                <div class="span8">
+                    <h1 style="padding-left: 50px;">ABOUT ME</h1>
+                    <p style="padding-left: 50px;">
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <p style="padding-left: 50px;">
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                </div>
+                <div class="span4">
+                    <div class="tdiv t5">
+                        I am now available to take your next project. Donec id elit non mi porta gravida at eget metus. <br/><br/>
+                        <p>
+                            Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Use my contact form for a free quote!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="row-fluid">
+                <div class="span4">
+                    <h2 style="padding-left: 50px;">Why choose me</h2>
+                    <p style="padding-left: 50px;">
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <p class="fancystyle" style="padding-left: 50px;">
+                        Professional
+                    </p>
+                </div>
+                <div class="span4">
+                    <h2>My Experience</h2>
+                    <p>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <p class="fancystyle">
+                        Enthusiastic
+                    </p>
+                </div>
+                <div class="span4">
+                    <h2>Prices</h2>
+                    <p>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <p class="fancystyle">
+                        Affordable
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="pagebreak">
+        </div>
+
+        <!-- CONTACT
+        ================================================== -->
+        <section id="contact">
+            <div class="separator"></div><br/>
+            <div class="row-fluid">
+                <div class="span12 addspace">
+                    <h1 class="pull-right" style="font-family: yekan">ثبت نظرات</h1>
+                </div>
+            </div>
+            <div class="row-fluid" style="min-height:520px;">
+                <div class="span7">
+                    <div class="done">
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert">x</button>
+                            <strong>Message sent successfully!</strong><br/>
+                        </div>
+                    </div>
+                    <div class="form">
+                        <form style="padding-left: 50px;"class="pull-right" method="post" action="http://wbpreview.com/previews/WB0C1490J/contact.php" id="contactform">
+                            <table class="pull-right">
+                                <tbody>
+                                <tr class="element">
+                                    <td class="noborder">
+                                    </td>
+                                    <td class="noborder pull-right">
+                                        <!-- Name--><input style="font-family: yekan; direction: rtl;" type="text" name="name" class="text input-xxlarge" placeholder="نام">
+                                    </td>
+                                </tr>
+                                <tr class="element">
+                                    <td class="noborder">
+                                    </td>
+                                    <td class="noborder">
+                                        <!-- Email--><input style="font-family: yekan; direction: rtl;" type="text" name="email" class="text input-xxlarge" placeholder="ایمیل">
+                                    </td>
+                                </tr>
+                                <tr class="element texttop">
+                                    <td class="noborder">
+                                    </td>
+                                    <td class="noborder">
+                                        <!-- Message--><textarea style="font-family: yekan; direction: rtl;" name="comment" class="text textarea input-xxlarge" rows="7" placeholder="نظر"></textarea>
+                                    </td>
+                                </tr>
+                                <tr class="element">
+                                    <td class="noborder">
+                                        &nbsp;
+                                    </td>
+                                    <td class="noborder">
+                                        <!-- Submit--><input style="font-family: yekan; direction: rtl;" type="submit" id="submit" class="btn" value="ثبت">
+                                        <div class="loading">
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <br/>
+
+        <!-- FOOTER
+            ================================================== -->
+        <div class="row-fluid">
+            <div class="span12 addspace center">
+                <p>
+                    <small>&copy; 2013 Your Website Name. Afolique - Responsive Portofolio Theme</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- CLOSE ALL DIVS
+            ================================================== -->
+    </div><!--/.span9-->
+    <!-- SIDEBAR
+       ================================================== -->
+
+    <div class="span3 pull-right" style="padding-left: 40px;">
+        <div class="well sidebar-nav sidebar-nav-fixed">
+            <div class="logo">
+                <!-- Logo --><a style="font-family: yekan; font-size: 25px;direction: rtl" href="#home">اتوماسیون مدیریت دروس دانشگاهی</a>
+            </div>
+            <ul class="pull-right">
+                <!-- MENU - Note that "#..." is the anchor id. Each one should correspond to our id sections below.
+                ================================================== -->
+                <li class="pull-right"><a style="font-family: yekan;text-align: center;" class="home" href="#home">صفحه اصلی</a></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+
+                <li class="pull-right"><a style="font-family: yekan;text-align: center;" class="portofolio" href="#about"> در باره ما</a></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+
+                <li class="pull-right"><a style="font-family: yekan;text-align: center;" class="contact" href="#contact">نظرات</a></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+
+                <li class="pull-right"><a style="font-family: yekan;text-align: center;" href="{{ path('fos_user_registration_register') }}">ثبت نام</a></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+
+                <li class="pull-right"><a style="font-family: yekan;text-align: center;" class="services" href="{{ path('fos_user_security_login') }}">ورود</a></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+                <li class="description"></li>
+            </ul>
+        </div>
+    </div>
+    </div><!--/.row-fluid-->
+    </div><!--/.container-fluid-->
+{% endblock %}

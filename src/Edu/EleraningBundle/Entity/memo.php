@@ -45,9 +45,26 @@ class memo
 
     /**
      * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
-     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=false)
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
      */
-    private $useres;
+    private $fromuser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     */
+    private $touser;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="memo", inversedBy="replayto")
+     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     */
+    private $answer;
+
+    /**
+     * @ORM\OneToMany(targetEntity="memo", mappedBy="answer")
+     */
+    private $replayto;
 
 
     /**
@@ -152,5 +169,114 @@ class memo
     public function getUseres()
     {
         return $this->useres;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->replayto = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set fromuser
+     *
+     * @param \Edu\EleraningBundle\Entity\user $fromuser
+     * @return memo
+     */
+    public function setFromuser(\Edu\EleraningBundle\Entity\user $fromuser = null)
+    {
+        $this->fromuser = $fromuser;
+
+        return $this;
+    }
+
+    /**
+     * Get fromuser
+     *
+     * @return \Edu\EleraningBundle\Entity\user 
+     */
+    public function getFromuser()
+    {
+        return $this->fromuser;
+    }
+
+    /**
+     * Set touser
+     *
+     * @param \Edu\EleraningBundle\Entity\user $touser
+     * @return memo
+     */
+    public function setTouser(\Edu\EleraningBundle\Entity\user $touser = null)
+    {
+        $this->touser = $touser;
+
+        return $this;
+    }
+
+    /**
+     * Get touser
+     *
+     * @return \Edu\EleraningBundle\Entity\user 
+     */
+    public function getTouser()
+    {
+        return $this->touser;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param \Edu\EleraningBundle\Entity\memo $answer
+     * @return memo
+     */
+    public function setAnswer(\Edu\EleraningBundle\Entity\memo $answer = null)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return \Edu\EleraningBundle\Entity\memo 
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
+    /**
+     * Add replayto
+     *
+     * @param \Edu\EleraningBundle\Entity\memo $replayto
+     * @return memo
+     */
+    public function addReplayto(\Edu\EleraningBundle\Entity\memo $replayto)
+    {
+        $this->replayto[] = $replayto;
+
+        return $this;
+    }
+
+    /**
+     * Remove replayto
+     *
+     * @param \Edu\EleraningBundle\Entity\memo $replayto
+     */
+    public function removeReplayto(\Edu\EleraningBundle\Entity\memo $replayto)
+    {
+        $this->replayto->removeElement($replayto);
+    }
+
+    /**
+     * Get replayto
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getReplayto()
+    {
+        return $this->replayto;
     }
 }

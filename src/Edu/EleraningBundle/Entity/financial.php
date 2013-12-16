@@ -50,17 +50,10 @@ class financial
     private $explanation;
 
     /**
-     * @ORM\OneToOne(targetEntity="university", inversedBy="financial")
-     * @ORM\JoinColumn(name="universityid", referencedColumnName="id", nullable=false)
+     * @ORM\ManyToOne(targetEntity="university", inversedBy="financial")
+     * @ORM\JoinColumn(name="university_id", referencedColumnName="id")
      */
     private $universites;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->universites = new \Doctrine\Common\Collections\ArrayCollection();
-        // your own logic
-    }
 
 
     /**

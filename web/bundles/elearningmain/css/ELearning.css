@@ -1,0 +1,12 @@
+
+section#main {  margin-left: 0px; }
+ul.top-notifications { display: none; }
+
+.registeruni{
+    margin-top: 200px;
+    background-color: #0077b3;
+}
+
+.registeruni ul li{
+    list-style: none;
+}

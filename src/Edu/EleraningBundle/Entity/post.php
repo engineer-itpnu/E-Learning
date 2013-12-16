@@ -57,13 +57,6 @@ class post
     private $public;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="touser", type="string", length=255)
-     */
-    private $touser;
-
-    /**
      * @ORM\OneToMany(targetEntity="comment", mappedBy="post")
      */
     private $commentes;
@@ -73,6 +66,12 @@ class post
      * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=false)
      */
     private $useres;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="lesson", inversedBy="post")
+     * @ORM\JoinColumn(name="lessonid", referencedColumnName="id", nullable=false)
+     */
+    private $lessones;
 
 
     /**
@@ -285,5 +284,28 @@ class post
     public function getUseres()
     {
         return $this->useres;
+    }
+
+    /**
+     * Set lessones
+     *
+     * @param \Edu\EleraningBundle\Entity\lesson $lessones
+     * @return post
+     */
+    public function setLessones(\Edu\EleraningBundle\Entity\lesson $lessones)
+    {
+        $this->lessones = $lessones;
+
+        return $this;
+    }
+
+    /**
+     * Get lessones
+     *
+     * @return \Edu\EleraningBundle\Entity\lesson 
+     */
+    public function getLessones()
+    {
+        return $this->lessones;
     }
 }

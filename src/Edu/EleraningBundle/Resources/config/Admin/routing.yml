@@ -1,0 +1,7 @@
+a_main:
+    pattern: /
+    defaults: { _controller: EduEleraningBundle:Admin:admin}
+
+addmanager:
+    pattern: /addmanager
+    defaults: { _controller: EduEleraningBundle:Admin:addmanager}

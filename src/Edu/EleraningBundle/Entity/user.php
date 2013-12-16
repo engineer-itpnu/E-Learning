@@ -72,6 +72,11 @@ class user extends BaseUser
      */
     protected $studentlesson;
 
+    /**
+     * @ORM\OneToMany(targetEntity="lesson", mappedBy="user")
+     */
+    private $lessones;
+
     public function __construct()
     {
         parent::__construct();
@@ -314,5 +319,38 @@ class user extends BaseUser
     public function getStudentlesson()
     {
         return $this->studentlesson;
+    }
+
+    /**
+     * Add lessones
+     *
+     * @param \Edu\EleraningBundle\Entity\lesson $lessones
+     * @return user
+     */
+    public function addLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
+    {
+        $this->lessones[] = $lessones;
+
+        return $this;
+    }
+
+    /**
+     * Remove lessones
+     *
+     * @param \Edu\EleraningBundle\Entity\lesson $lessones
+     */
+    public function removeLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
+    {
+        $this->lessones->removeElement($lessones);
+    }
+
+    /**
+     * Get lessones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLessones()
+    {
+        return $this->lessones;
     }
 }

@@ -1,0 +1,7 @@
+m_main:
+    pattern: /
+    defaults: { _controller: EduEleraningBundle:Manager:manager}
+
+addteacher:
+    pattern: /addteacher
+    defaults: { _controller: EduEleraningBundle:Manager:addteacher}

@@ -1,0 +1,3 @@
+s_main:
+    pattern: /
+    defaults: { _controller: EduEleraningBundle:Student:student}

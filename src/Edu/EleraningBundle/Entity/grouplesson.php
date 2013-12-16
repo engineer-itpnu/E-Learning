@@ -40,6 +40,13 @@ class grouplesson
      */
     private $lessones;
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="university", inversedBy="grouplesson")
+     * @ORM\JoinColumn(name="university_id", referencedColumnName="id")
+     */
+    private $universityid;
+
     public function __construct()
     {
         parent::__construct();
@@ -135,5 +142,28 @@ class grouplesson
     public function getLessones()
     {
         return $this->lessones;
+    }
+
+    /**
+     * Set universityid
+     *
+     * @param \Edu\EleraningBundle\Entity\university $universityid
+     * @return grouplesson
+     */
+    public function setUniversityid(\Edu\EleraningBundle\Entity\university $universityid = null)
+    {
+        $this->universityid = $universityid;
+
+        return $this;
+    }
+
+    /**
+     * Get universityid
+     *
+     * @return \Edu\EleraningBundle\Entity\university 
+     */
+    public function getUniversityid()
+    {
+        return $this->universityid;
     }
 }

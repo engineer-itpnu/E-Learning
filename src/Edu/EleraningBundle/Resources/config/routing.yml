@@ -1,3 +1,20 @@
 edu_eleraning_homepage:
-    pattern:  /hello/{name}
+    pattern:  /
     defaults: { _controller: EduEleraningBundle:Default:index }
+
+admin:
+    resource: "@EduEleraningBundle/Resources/config/Admin/routing.yml"
+    prefix: /admin
+
+manager:
+    resource: "@EduEleraningBundle/Resources/config/Manager/routing.yml"
+    prefix: /manager
+
+teacher:
+    resource: "@EduEleraningBundle/Resources/config/Teacher/routing.yml"
+    prefix: /teacher
+
+student:
+    resource: "@EduEleraningBundle/Resources/config/Student/routing.yml"
+    prefix: /student
+

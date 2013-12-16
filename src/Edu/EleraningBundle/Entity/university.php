@@ -50,8 +50,14 @@ class university
     private $enddate;
 
     /**
-     * @ORM\OneToOne(targetEntity="financial", inversedBy="university")
-     * @ORM\JoinColumn(name="financialid", referencedColumnName="id", nullable=false)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="regdate", type="date")
+     */
+    private $regdate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="financial", mappedBy="university")
      */
     private $financiales;
 
@@ -59,6 +65,11 @@ class university
      * @ORM\OneToMany(targetEntity="user", mappedBy="university")
      */
     private $useres;
+
+    /**
+     * @ORM\OneToMany(targetEntity="grouplesson", mappedBy="university")
+     */
+    private $gouplessonss;
 
     /**
      * Get id
@@ -224,5 +235,84 @@ class university
     public function getUseres()
     {
         return $this->useres;
+    }
+
+    /**
+     * Set regdate
+     *
+     * @param \DateTime $regdate
+     * @return university
+     */
+    public function setRegdate($regdate)
+    {
+        $this->regdate = $regdate;
+
+        return $this;
+    }
+
+    /**
+     * Get regdate
+     *
+     * @return \DateTime 
+     */
+    public function getRegdate()
+    {
+        return $this->regdate;
+    }
+
+    /**
+     * Add financiales
+     *
+     * @param \Edu\EleraningBundle\Entity\financial $financiales
+     * @return university
+     */
+    public function addFinanciale(\Edu\EleraningBundle\Entity\financial $financiales)
+    {
+        $this->financiales[] = $financiales;
+
+        return $this;
+    }
+
+    /**
+     * Remove financiales
+     *
+     * @param \Edu\EleraningBundle\Entity\financial $financiales
+     */
+    public function removeFinanciale(\Edu\EleraningBundle\Entity\financial $financiales)
+    {
+        $this->financiales->removeElement($financiales);
+    }
+
+    /**
+     * Add gouplessonss
+     *
+     * @param \Edu\EleraningBundle\Entity\grouplesson $gouplessonss
+     * @return university
+     */
+    public function addGouplessonss(\Edu\EleraningBundle\Entity\grouplesson $gouplessonss)
+    {
+        $this->gouplessonss[] = $gouplessonss;
+
+        return $this;
+    }
+
+    /**
+     * Remove gouplessonss
+     *
+     * @param \Edu\EleraningBundle\Entity\grouplesson $gouplessonss
+     */
+    public function removeGouplessonss(\Edu\EleraningBundle\Entity\grouplesson $gouplessonss)
+    {
+        $this->gouplessonss->removeElement($gouplessonss);
+    }
+
+    /**
+     * Get gouplessonss
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGouplessonss()
+    {
+        return $this->gouplessonss;
     }
 }
