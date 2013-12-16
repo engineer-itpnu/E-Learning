@@ -45,13 +45,13 @@ class memo
 
     /**
      * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
-     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="fromuserid", referencedColumnName="id", nullable=true)
      */
     private $fromuser;
 
     /**
      * @ORM\ManyToOne(targetEntity="user", inversedBy="memo")
-     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="touserid", referencedColumnName="id", nullable=true)
      */
     private $touser;
 
