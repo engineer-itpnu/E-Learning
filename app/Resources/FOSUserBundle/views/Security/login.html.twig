@@ -2,7 +2,7 @@
 
 
 {% block fos_user_content %}
-    {% block title %} <title>سیستم رزرواسیون هتل</title>{% endblock %}
+    {% block title %} <title>اتوماسیون دروس دانشگاهی</title>{% endblock %}
 
     {% block stylesheet %}
         <style type="text/css">
@@ -18,21 +18,22 @@
         </style>
     {% endblock %}
     {% block body %}
-        <div>
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-            {% endif %}
-            {% if error %}
-                <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
-            {% endif %}
-        </div>
+        {#<div>#}
+            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+                {#<a href="{{ path('fos_user_security_logout') }}">#}
+                    {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+                {#</a>#}
+            {#{% else %}#}
+                {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+            {#{% endif %}#}
+            {#{% if error %}#}
+                {#<div>{{ error|trans({}, 'FOSUserBundle') }}</div>#}
+            {#{% endif %}#}
+        {#</div>#}
         <div class="form" style="background-color: #a9302a; width: 480px;height: 280px;text-align: right;">
-            <form  action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal"><table>
+            <form  action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+                <table>
                     <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     <img src="{{ asset('bundles/assets/img/Login.png') }}" class="img-circle" style="margin-bottom: -70px;">
                     <div class="control-group" ><tr>

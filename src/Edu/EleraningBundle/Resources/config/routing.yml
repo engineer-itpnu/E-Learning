@@ -19,9 +19,6 @@ teacher:
 student:
     resource: "@EduEleraningBundle/Resources/config/Student/routing.yml"
     prefix: /student
-edu_eleraning_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: EduEleraningBundle:Default:index }
 EduEleraningBundle_comment:
     resource: "@EduEleraningBundle/Resources/config/routing/comment.yml"
     prefix:   /comment
