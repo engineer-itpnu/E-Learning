@@ -57,7 +57,7 @@ class memo
 
     /**
      * @ORM\ManyToOne(targetEntity="memo", inversedBy="replayto")
-     * @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="memoid", referencedColumnName="id", nullable=true)
      */
     private $answer;
 
