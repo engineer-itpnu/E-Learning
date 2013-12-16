@@ -1,0 +1,30 @@
+studentlesson:
+    pattern:  /
+    defaults: { _controller: "EduEleraningBundle:studentlesson:index" }
+
+studentlesson_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EduEleraningBundle:studentlesson:show" }
+
+studentlesson_new:
+    pattern:  /new
+    defaults: { _controller: "EduEleraningBundle:studentlesson:new" }
+
+studentlesson_create:
+    pattern:  /create
+    defaults: { _controller: "EduEleraningBundle:studentlesson:create" }
+    requirements: { _method: post }
+
+studentlesson_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EduEleraningBundle:studentlesson:edit" }
+
+studentlesson_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EduEleraningBundle:studentlesson:update" }
+    requirements: { _method: post|put }
+
+studentlesson_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EduEleraningBundle:studentlesson:delete" }
+    requirements: { _method: post|delete }

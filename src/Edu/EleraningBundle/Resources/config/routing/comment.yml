@@ -1,0 +1,30 @@
+comment:
+    pattern:  /
+    defaults: { _controller: "EduEleraningBundle:comment:index" }
+
+comment_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EduEleraningBundle:comment:show" }
+
+comment_new:
+    pattern:  /new
+    defaults: { _controller: "EduEleraningBundle:comment:new" }
+
+comment_create:
+    pattern:  /create
+    defaults: { _controller: "EduEleraningBundle:comment:create" }
+    requirements: { _method: post }
+
+comment_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EduEleraningBundle:comment:edit" }
+
+comment_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EduEleraningBundle:comment:update" }
+    requirements: { _method: post|put }
+
+comment_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EduEleraningBundle:comment:delete" }
+    requirements: { _method: post|delete }
