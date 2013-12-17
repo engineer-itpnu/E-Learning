@@ -6,57 +6,161 @@
     {% block stylesheet %}
         <style type="text/css">
             .form {
-                margin: 95px auto 0px auto;
+                margin: 5px auto 0px auto;
                 overflow: auto;
-                padding-top: 40px;
+                padding-top: 5px;
                 direction: rtl;
+                border: 1px solid;
+                border-radius: 20px;
             }
             form {
                 padding:  0 30px;
             }
+
+            .control-group {
+                margin: 5px !important;
+                height: 0 !important;
+            }
         </style>
     {% endblock %}
     {% block body %}
-        {#<div>#}
-        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-        {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
-        {#<a href="{{ path('fos_user_security_logout') }}">#}
-        {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-        {#</a>#}
-        {#{% else %}#}
-        {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
-        {#{% endif %}#}
-        {#{% if error %}#}
-        {#<div>{{ error|trans({}, 'FOSUserBundle') }}</div>#}
-        {#{% endif %}#}
-        {#</div>#}
-        <div class="form" style="background-color: #a9302a; width: 480px;height: 280px;text-align: right;">
-            <form  action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+        <div class="form" style="background-color: #7E7E7E; width: 480px;height: 450px;text-align: right;">
+            <form action="{{ path("fos_user_registration_register") }}" method="post" class="form-horizontal">
                 <table>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    <img src="{{ asset('bundles/assets/img/Login.png') }}" class="img-circle" style="margin-bottom: -70px;">
-                    <div class="control-group" ><tr>
-                            <td><label class="control-label  label label-important" for="username" style="text-align: center">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label></td>
+                    <input type="hidden" name="_csrf_token"/>
+
+                    <div class="control-group">
+                        <tr>
+                            <td>
+                                <label class="control-label  label label-important" for="email"
+                                       style="text-align: center">ایمیل</label>
+                            </td>
                             <div class="controls">
-                                <td><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="نام کاربری"></td><td><i class="icon-user"></i></td>
+                                <td>
+                                    <input type="text" id="email" name="_email" required="required" placeholder="ایمیل">
+                                </td>
+                                <td>
+                                    <i class="icon-user">
+
+                                    </i>
+                                </td>
                             </div>
-                        </tr></div>
-                    <div class="control-group"><tr>
-                            <td><label class="control-label label label-important" for="password" style="text-align: center">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label></td>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td>
+                                <label class="control-label  label label-important" for="username"
+                                       style="text-align: center">نام کاربری</label>
+                            </td>
+                            <div class="controls">
+                                <td>
+                                    <input type="text" id="username" name="_username" required="required"
+                                           placeholder="نام کاربری">
+                                </td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label label label-important" for="password"
+                                       style="text-align: center">رمز ورود</label></td>
                             <div class="controls">
                                 <td> <input type="password" id="password" name="_password" required="required" placeholder="کلمه عبور"></td><td><i class="icon-qrcode"></i></td>
                             </div>
-                        </tr></div>
-                    <div class="control-group"><tr>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="password2"
+                                       style="text-align: center">تکرار رمز ورود</label></td>
                             <div class="controls">
-                                <td><label class="checkbox label label-important" for="remember_me">
-                                        {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
-                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />                                    </label></td></tr>
-                        <tr><td style="position: absolute; margin-right: 170px;"><input type="submit" id="_submit" name="_submit" class="btn btn-large btn-primary"value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}"/></td></tr>
+                                <td><input type="text" id="password2" name="_password2" required="required"
+                                           placeholder="تکرار رمز ورود"></td>
+                                <td><i class="icon-user"></i></td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="name"
+                                       style="text-align: center">نام</label></td>
+                            <div class="controls">
+                                <td><input type="text" id="name" name="_name" required="required" placeholder="نام">
+                                </td>
+                                <td><i class="icon-user"></i></td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="family"
+                                       style="text-align: center">نام خانوادگی</label></td>
+                            <div class="controls">
+                                <td><input type="text" id="family" name="_family" required="required"
+                                           placeholder="نام خانوادگی"></td>
+                                <td><i class="icon-user"></i></td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="phone"
+                                       style="text-align: center">شماره تماس</label></td>
+                            <div class="controls">
+                                <td><input type="text" id="phone" name="_phone" required="required"
+                                           placeholder="شماره تماس"></td>
+                                <td><i class="icon-user"></i></td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="melicode"
+                                       style="text-align: center">کد ملی</label></td>
+                            <div class="controls">
+                                <td><input type="text" id="melicode" name="_melicode" required="required"
+                                           placeholder="کد ملی"></td>
+                                <td><i class="icon-user"></i></td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td><label class="control-label  label label-important" for="type"
+                                       style="text-align: center">نوع کاربر</label></td>
+                            <div class="controls">
+                                <td>
+                                    <select type="text" id="type" name="_type" required="required"
+                                            placeholder="نوع کاربر">
+                                        <option>
+                                            مدیر سایت
+                                        </option>
+                                        <option>
+                                            استاد
+                                        </option>
+                                        <option>
+                                            دانشجو
+                                        </option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <i class="icon-user"></i>
+                                </td>
+                            </div>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
+                            <td style="position: absolute; margin-right: 170px;"><input type="submit" id="_submit"
+                                                                                        name="_submit"
+                                                                                        class="btn btn-large btn-primary"
+                                                                                        value="ثبت نام"/></td>
+                        </tr>
                     </div>
 
-        </div></table>
-        </form>
+                </table>
+            </form>
         </div>
     {% endblock %}
 {% endblock fos_user_content %}

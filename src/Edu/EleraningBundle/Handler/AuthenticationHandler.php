@@ -16,12 +16,13 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\Response;
 
-class AuthenticationHandler implements AuthenticationSuccessHandlerInterface {
+class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
+{
 
     protected $router;
     protected $security;
 
-    public function __construct(Router $router,SecurityContext $security)
+    public function __construct(Router $router, SecurityContext $security)
     {
         $this->router = $router;
         $this->security = $security;
@@ -40,21 +41,15 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface {
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
         // TODO: Implement onAuthenticationSuccess() method.
-        if($this->security->isGranted('ROLE_ADMIN'))
-        {
+        if ($this->security->isGranted('ROLE_ADMIN')) {
             $response = new RedirectResponse($this->router->generate('a_main'));
-        }
-        elseif($this->security->isGranted('ROLE_MANAGER'))
-        {
-
+        } elseif ($this->security->isGranted('ROLE_MANAGER')) {
             $response = new RedirectResponse($this->router->generate('m_main'));
         }
-        if($this->security->isGranted('ROLE_TEACHER'))
-        {
+        if ($this->security->isGranted('ROLE_TEACHER')) {
             $response = new RedirectResponse($this->router->generate('t_main'));
         }
-        if($this->security->isGranted('ROLE_STUDENT'))
-        {
+        if ($this->security->isGranted('ROLE_STUDENT')) {
             $response = new RedirectResponse($this->router->generate('s_main'));
         }
         return $response;
