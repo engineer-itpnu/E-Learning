@@ -48,4 +48,14 @@ class AdminController extends Controller {
         return $this->render('EduEleraningBundle:Admin:addmanager.html.twig',array('form' => $form->createView()));
     }
 
+    public function showuniversityAction()
+    {
+        return $this->render('EduEleraningBundle:Admin:showuni.html.twig');
+    }
+
+    public function extensionuniversity()
+    {
+        return $this->render('EduEleraningBundle:Admin:extensionuni.html.twig');
+    }
+
 } 

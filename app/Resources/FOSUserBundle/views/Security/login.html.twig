@@ -2,7 +2,6 @@
 
 
 {% block fos_user_content %}
-    {% block title %} <title>اتوماسیون دروس دانشگاهی</title>{% endblock %}
 
     {% block stylesheet %}
         <style type="text/css">
@@ -14,49 +13,65 @@
                 border: 1px solid;
                 border-radius: 20px;
             }
+
             form {
-                padding:  0 30px;
+                padding: 0 30px;
             }
         </style>
     {% endblock %}
     {% block body %}
         {#<div>#}
-            {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-                {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
-                {#<a href="{{ path('fos_user_security_logout') }}">#}
-                    {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
-                {#</a>#}
-            {#{% else %}#}
-                {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
-            {#{% endif %}#}
-            {#{% if error %}#}
-                {#<div>{{ error|trans({}, 'FOSUserBundle') }}</div>#}
-            {#{% endif %}#}
+        {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+        {#{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |#}
+        {#<a href="{{ path('fos_user_security_logout') }}">#}
+        {#{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}#}
+        {#</a>#}
+        {#{% else %}#}
+        {#<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>#}
+        {#{% endif %}#}
+        {#{% if error %}#}
+        {#<div>{{ error|trans({}, 'FOSUserBundle') }}</div>#}
+        {#{% endif %}#}
         {#</div>#}
         <div class="form" style="background-color: #7E7E7E; width: 480px;height: 280px;text-align: right;">
-            <form  action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal">
                 <table>
-                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                    <img src="{{ asset('bundles/assets/img/Login.png') }}" class="img-circle" style="margin-bottom: -70px;">
-                    <div class="control-group" ><tr>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                    <img src="{{ asset('bundles/assets/img/Login.png') }}" class="img-circle"
+                         style="margin-bottom: -70px;">
+
+                    <div class="control-group">
+                        <tr>
                             <td><label class="control-label  label label-important" for="username"
                                        style="text-align: center">نام کاربری</label></td>
                             <div class="controls">
-                                <td><input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="نام کاربری"></td><td><i class="icon-user"></i></td>
+                                <td><input type="text" id="username" name="_username" value="{{ last_username }}"
+                                           required="required" placeholder="نام کاربری"></td>
+                                <td><i class="icon-user"></i></td>
                             </div>
-                        </tr></div>
-                    <div class="control-group"><tr>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
                             <td><label class="control-label label label-important" for="password"
                                        style="text-align: center">رمز ورود</label></td>
                             <div class="controls">
-                                <td> <input type="password" id="password" name="_password" required="required" placeholder="کلمه عبور"></td><td><i class="icon-qrcode"></i></td>
+                                <td><input type="password" id="password" name="_password" required="required"
+                                           placeholder="کلمه عبور"></td>
+                                <td><i class="icon-qrcode"></i></td>
                             </div>
-                        </tr></div>
-                    <div class="control-group"><tr>
+                        </tr>
+                    </div>
+                    <div class="control-group">
+                        <tr>
                             <div class="controls">
                                 <td><label class="checkbox label label-important" for="remember_me">
                                         مرا به خاطر بسپار
-                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />                                    </label></td></tr>
+                                        <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
+                                    </label>
+                                </td>
+                            </div>
+                        </tr>
                         <tr>
                             <td style="position: absolute; margin-right: 170px;"><input type="submit" id="_submit"
                                                                                         name="_submit"
@@ -64,9 +79,8 @@
                                                                                         value="ورود"/></td>
                         </tr>
                     </div>
-
-        </div></table>
-        </form>
+                </table>
+            </form>
         </div>
     {% endblock %}
 {% endblock fos_user_content %}

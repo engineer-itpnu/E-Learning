@@ -220,4 +220,14 @@ class userController extends Controller
             ->getForm()
         ;
     }
+
+    public function studentAction()
+    {
+        return $this->render('EduEleraningBundle:Student:studentpanet.html.twig');
+    }
+
+    public function teacherAction()
+    {
+        return $this->render('EduEleraningBundle:Teacher:teacherpanel.html.twig');
+    }
 }

@@ -5,3 +5,11 @@ a_main:
 addmanager:
     pattern: /addmanager
     defaults: { _controller: EduEleraningBundle:Admin:addmanager}
+
+showuniversities:
+    pattern: /showuniversity
+    defaults: { _controller: EduEleraningBundle:Admin:showuniversity}
+
+extensionuniversity:
+    pattern: /extensionuniversity
+    defaults: { _controller: EduEleraningBundle:Admin:extensionuniversity}
