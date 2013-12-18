@@ -17,7 +17,6 @@ class AdminController extends Controller {
 
     public function adminAction()
     {
-
         return $this->render('EduEleraningBundle:Admin:adminmain.html.twig');
     }
 

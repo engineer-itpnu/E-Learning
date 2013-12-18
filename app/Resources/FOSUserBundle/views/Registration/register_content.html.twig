@@ -1,8 +1,117 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
-    </div>
+<form action="{{ path("fos_user_registration_register") }}" {{ form_enctype(form) }} method="post"
+      class="form-horizontal fos_user_registration_register">
+    <table>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">ایمیل</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.email) }}</div>
+                {{ form_widget(form.email,{"attr":{"placeholder":"ایمیل"} }) }}
+            </td>
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">نام کاربری</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.username) }}</div>
+                {{ form_widget(form.username,{"attr":{"placeholder":"نام کاربری"} }) }}
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">رمز ورود</label>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.plainPassword.first) }}</div>
+                {{ form_widget(form.plainPassword.first,{"attr":{"placeholder":"رمز ورود"} }) }}
+            <td>
+                <i class="icon-qrcode"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">تکرار رمز ورود</label>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.plainPassword.second) }}</div>
+                {{ form_widget(form.plainPassword.second,{"attr":{"placeholder":"تکرار رمز ورود"} }) }}
+            <td>
+                <i class="icon-qrcode"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">نام</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.fname) }}</div>
+                {{ form_widget(form.fname,{"attr":{"placeholder":"نام"} }) }}
+            </td>
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">نام خانوادگی</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.lname) }}</div>
+                {{ form_widget(form.lname,{"attr":{"placeholder":"نام خانوادگی"} }) }}
+            </td>
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important"style="text-align: center">شماره تماس</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.phone) }}</div>
+                {{ form_widget(form.phone,{"attr":{"placeholder":"شماره تماس"} }) }}
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">کد ملی</label>
+            </td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.melicode) }}</div>
+                {{ form_widget(form.melicode,{"attr":{"placeholder":"کد ملی"} }) }}
+            </td>
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label class="control-label  label label-important" style="text-align: center">نوع کاربر</label></td>
+            <td>
+                <div style="color: darkred">{{ form_errors(form.roles) }}</div>
+                {{ form_widget(form.roles,{"attr":{"placeholder":"نوع کاربر"} }) }}
+            </td>
+            <td>
+                <i class="icon-user"></i>
+            </td>
+        </tr>
+        <tr>
+            <td style="position: absolute; margin-right: 170px;">
+                <input type="submit" name="_submit" class="btn btn-large btn-primary" value="ثبت نام"/>
+            </td>
+        </tr>
+
+    </table>
+    {{ form_rest(form) }}
+
 </form>

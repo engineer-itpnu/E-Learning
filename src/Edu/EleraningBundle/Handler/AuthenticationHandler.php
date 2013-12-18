@@ -11,10 +11,10 @@ namespace Edu\EleraningBundle\Handler;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
-use Symfony\Component\Security\Http\Authentication\Response;
 
 class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
 {
@@ -36,23 +36,23 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface
      * @param Request $request
      * @param TokenInterface $token
      *
-     * @return Response never null
+     * @return RedirectResponse never null
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token)
     {
-        // TODO: Implement onAuthenticationSuccess() method.
-        if ($this->security->isGranted('ROLE_ADMIN')) {
-            $response = new RedirectResponse($this->router->generate('a_main'));
-        } elseif ($this->security->isGranted('ROLE_MANAGER')) {
-            $response = new RedirectResponse($this->router->generate('m_main'));
-        }
-        if ($this->security->isGranted('ROLE_TEACHER')) {
-            $response = new RedirectResponse($this->router->generate('t_main'));
-        }
-        if ($this->security->isGranted('ROLE_STUDENT')) {
-            $response = new RedirectResponse($this->router->generate('s_main'));
-        }
-        return $response;
+        if ($this->security->isGranted('ROLE_ADMIN'))
+            return new RedirectResponse($this->router->generate('a_main'));
+
+        if ($this->security->isGranted('ROLE_MANAGER'))
+            return new RedirectResponse($this->router->generate('m_main'));
+
+        if ($this->security->isGranted('ROLE_TEACHER'))
+            return new RedirectResponse($this->router->generate('t_main'));
+
+        if ($this->security->isGranted('ROLE_STUDENT'))
+            return new RedirectResponse($this->router->generate('s_main'));
+
+        return new Response("Error");
     }
 
 } 

@@ -1,11 +1,57 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
-
-{% trans_default_domain 'FOSUserBundle' %}
+{% extends 'EduEleraningBundle::main.html.twig' %}
 
 {% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
-    {% if app.session is not empty %}
-        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
-        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
-    {% endif %}
+    {% block title %} <title>اتوماسیون دروس دانشگاهی</title>{% endblock %}
+
+    {% block stylesheet %}
+        <style type="text/css">
+            .form {
+                margin: 5px auto 0px auto;
+                overflow: auto;
+                padding-top: 5px;
+                direction: rtl;
+                border: 1px solid;
+                border-radius: 20px;
+            }
+
+            form {
+                padding: 0 30px;
+            }
+
+            .control-group {
+                margin: 50px 10px !important;
+                height: 0 !important;
+            }
+        </style>
+    {% endblock %}
+    {% block body %}
+        <div class="form" style="background-color: #7E7E7E; width: 480px;height: 450px;text-align: right;">
+            <div class="control-group" style="color: #ffffff;text-align: center;">
+                <b>
+                پروفایل کاربری شما با موفقیت ثبت شد
+                </b> <br/><br/>
+
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('a_main') }}" class="btn btn-large btn-primary">
+                        ورود به صفحه کاربری
+                    </a>
+                {% endif %}
+                {% if is_granted('ROLE_MANAGER') %}
+                    <a href="{{ path('m_main') }}" class="btn btn-large btn-primary">
+                        ورود به صفحه کاربری
+                    </a>
+                {% endif %}
+                {% if is_granted('ROLE_TEACHER') %}
+                    <a href="{{ path('t_main') }}" class="btn btn-large btn-primary">
+                        ورود به صفحه کاربری
+                    </a>
+                {% endif %}
+                {% if is_granted('ROLE_STUDENT') %}
+                    <a href="{{ path('s_main') }}" class="btn btn-large btn-primary">
+                        ورود به صفحه کاربری
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
 {% endblock fos_user_content %}

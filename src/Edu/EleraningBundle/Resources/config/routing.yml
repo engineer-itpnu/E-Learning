@@ -16,9 +16,11 @@ manager:
 teacher:
     resource: "@EduEleraningBundle/Resources/config/Teacher/routing.yml"
     prefix: /teacher
+
 student:
     resource: "@EduEleraningBundle/Resources/config/Student/routing.yml"
     prefix: /student
+
 EduEleraningBundle_comment:
     resource: "@EduEleraningBundle/Resources/config/routing/comment.yml"
     prefix:   /comment
