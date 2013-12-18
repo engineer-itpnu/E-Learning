@@ -16,3 +16,8 @@ services:
             tags:
                 - { name: form.type, alias: edu_user_registration }
 
+    family_tree.fos_events:
+        class: Edu\EleraningBundle\Handler\FOSListener
+        arguments: []
+        tags:
+            - { name: kernel.event_subscriber }
