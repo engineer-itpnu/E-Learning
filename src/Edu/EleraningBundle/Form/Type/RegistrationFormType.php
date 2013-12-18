@@ -13,7 +13,7 @@ class RegistrationFormType extends BaseType
             ->add('lname')
             ->add('phone')
             ->add('melicode')
-            ->add('roles','choice', array('choices' => array('ROLE_STUDENT' => 'دانشجو', 'ROLE_TEACHER' => 'استاد'),
+            ->add('roles','choice', array('choices' => array('ROLE_ADMIN' => 'مدیر سایت', 'ROLE_MANAGER' => 'مدیر داشگاه','ROLE_STUDENT' => 'دانشجو', 'ROLE_TEACHER' => 'استاد'),
                 'multiple'  => true,))
         ;
     }
