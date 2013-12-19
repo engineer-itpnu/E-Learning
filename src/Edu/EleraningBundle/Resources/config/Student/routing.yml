@@ -1,3 +1,19 @@
 s_main:
     pattern: /
     defaults: { _controller: EduEleraningBundle:Student:main}
+
+s_showlessons:
+    pattern: /lessons
+    defaults: { _controller: EduEleraningBundle:Student:showlessons}
+
+s_showposts:
+    pattern: /{lesid}/posts
+    defaults: { _controller: EduEleraningBundle:Student:showPosts}
+
+s_addpost:
+    pattern: /{lesid}/addpost
+    defaults: { _controller: EduEleraningBundle:Student:addPost}
+
+s_addrequest:
+    pattern: /request
+    defaults: { _controller: EduEleraningBundle:Student:addRequestlesson}

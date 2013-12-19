@@ -33,15 +33,19 @@ class ManagerController extends Controller {
 
         $form = $this->createForm(new RegistrationFormType('Edu\EleraningBundle\Entity\user'),$teacher)
             ->add('submit', 'submit', array('label' => 'ثبت'));
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
+        if($request->isMethod("POST"))
+        {
+            $form->handleRequest($request);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($teacher);
-            $em->flush();
-            return $this->redirect($this->generateUrl('showteachers'));
+            if ($form->isValid()) {
+                // perform some action, such as saving the task to the database
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($teacher);
+                $em->flush();
+                return $this->redirect($this->generateUrl('showteachers'));
+            }
         }
         return $this->render('EduEleraningBundle:Manager:addteacher.html.twig',array('form' => $form->createView()));
     }
@@ -88,15 +92,19 @@ class ManagerController extends Controller {
 
         $form = $this->createForm(new grouplessonType(),$group)
             ->add('submit', 'submit', array('label' => 'ثبت'));
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
+        if($request->isMethod("POST"))
+        {
+            $form->handleRequest($request);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($group);
-            $em->flush();
-            return $this->redirect($this->generateUrl('showgroups'));
+            if ($form->isValid()) {
+                // perform some action, such as saving the task to the database
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($group);
+                $em->flush();
+                return $this->redirect($this->generateUrl('showgroups'));
+            }
         }
         return $this->render('EduEleraningBundle:Manager:addgroup.html.twig',array('form' => $form->createView()));
     }
@@ -107,15 +115,19 @@ class ManagerController extends Controller {
 
         $form = $this->createForm(new lessonType($this->getUser()->getUniversity()),$lesson)
             ->add('submit', 'submit', array('label' => 'ثبت'));
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
+        if($request->isMethod("POST"))
+        {
+            $form->handleRequest($request);
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($lesson);
-            $em->flush();
-            return $this->redirect($this->generateUrl('m_main'));
+            if ($form->isValid()) {
+                // perform some action, such as saving the task to the database
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($lesson);
+                $em->flush();
+                return $this->redirect($this->generateUrl('m_main'));
+            }
         }
         return $this->render('EduEleraningBundle:Manager:addlesson.html.twig',array('form' => $form->createView()));
     }

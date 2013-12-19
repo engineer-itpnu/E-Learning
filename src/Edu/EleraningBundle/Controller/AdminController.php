@@ -26,14 +26,18 @@ class AdminController extends Controller {
 
         $form = $this->createForm(new universityType(), $uni)
         ->add('submit', 'submit', array('label' => 'ثبت'));
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($uni);
-            $em->persist($modir);
-            $em->flush();
-            return $this->redirect($this->generateUrl('showuniversities'));
+        if($request->isMethod("POST"))
+        {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($uni);
+                $em->persist($modir);
+                $em->flush();
+                return $this->redirect($this->generateUrl('showuniversities'));
+            }
         }
         return $this->render('EduEleraningBundle:Admin:addmanager.html.twig',array('form' => $form->createView()));
     }

@@ -29,12 +29,14 @@ class studentlesson
     private $accept;
 
     /**
-     * @ORM\OneToMany(targetEntity="lesson", mappedBy="studentlesson")
+     * @ORM\ManyToOne(targetEntity="lesson", inversedBy="studentlesson")
+     * @ORM\JoinColumn(name="lessonid", referencedColumnName="id", nullable=true)
      */
     private $lessones;
 
     /**
-     * @ORM\OneToMany(targetEntity="user", mappedBy="studentlesson")
+     * @ORM\ManyToOne(targetEntity="user", inversedBy="studentlesson")
+     * @ORM\JoinColumn(name="studentid", referencedColumnName="id")
      */
     private $useres;
 
@@ -71,42 +73,24 @@ class studentlesson
     {
         return $this->accept;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->lessones = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->useres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
-     * Add lessones
+     * Set lessones
      *
      * @param \Edu\EleraningBundle\Entity\lesson $lessones
      * @return studentlesson
      */
-    public function addLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
+    public function setLessones(\Edu\EleraningBundle\Entity\lesson $lessones = null)
     {
-        $this->lessones[] = $lessones;
+        $this->lessones = $lessones;
 
         return $this;
     }
 
     /**
-     * Remove lessones
-     *
-     * @param \Edu\EleraningBundle\Entity\lesson $lessones
-     */
-    public function removeLessone(\Edu\EleraningBundle\Entity\lesson $lessones)
-    {
-        $this->lessones->removeElement($lessones);
-    }
-
-    /**
      * Get lessones
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Edu\EleraningBundle\Entity\lesson 
      */
     public function getLessones()
     {
@@ -114,32 +98,22 @@ class studentlesson
     }
 
     /**
-     * Add useres
+     * Set useres
      *
      * @param \Edu\EleraningBundle\Entity\user $useres
      * @return studentlesson
      */
-    public function addUsere(\Edu\EleraningBundle\Entity\user $useres)
+    public function setUseres(\Edu\EleraningBundle\Entity\user $useres = null)
     {
-        $this->useres[] = $useres;
+        $this->useres = $useres;
 
         return $this;
     }
 
     /**
-     * Remove useres
-     *
-     * @param \Edu\EleraningBundle\Entity\user $useres
-     */
-    public function removeUsere(\Edu\EleraningBundle\Entity\user $useres)
-    {
-        $this->useres->removeElement($useres);
-    }
-
-    /**
      * Get useres
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Edu\EleraningBundle\Entity\user 
      */
     public function getUseres()
     {

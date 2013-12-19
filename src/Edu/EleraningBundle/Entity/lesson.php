@@ -49,8 +49,7 @@ class lesson
     private $grouplesson;
 
     /**
-     * @ORM\ManyToOne(targetEntity="studentlesson", inversedBy="lesson")
-     * @ORM\JoinColumn(name="studentlessonid", referencedColumnName="id", nullable=true)
+     * @ORM\OneToMany(targetEntity="studentlesson", mappedBy="lessones")
      */
     private $studentlesson;
 
@@ -145,35 +144,13 @@ class lesson
     {
         return $this->grouplesson;
     }
-
-    /**
-     * Set studentlesson
-     *
-     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
-     * @return lesson
-     */
-    public function setStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
-    {
-        $this->studentlesson = $studentlesson;
-
-        return $this;
-    }
-
-    /**
-     * Get studentlesson
-     *
-     * @return \Edu\EleraningBundle\Entity\studentlesson 
-     */
-    public function getStudentlesson()
-    {
-        return $this->studentlesson;
-    }
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->postes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->studentlesson = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -253,5 +230,38 @@ class lesson
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Add studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     * @return lesson
+     */
+    public function addStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
+    {
+        $this->studentlesson[] = $studentlesson;
+
+        return $this;
+    }
+
+    /**
+     * Remove studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     */
+    public function removeStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
+    {
+        $this->studentlesson->removeElement($studentlesson);
+    }
+
+    /**
+     * Get studentlesson
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudentlesson()
+    {
+        return $this->studentlesson;
     }
 }

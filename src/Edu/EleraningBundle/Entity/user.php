@@ -67,10 +67,9 @@ class user extends BaseUser
     private $memoes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="studentlesson", inversedBy="user")
-     * @ORM\JoinColumn(name="studentlesson_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="studentlesson", mappedBy="useres")
      */
-    protected $studentlesson;
+    private $studentlesson;
 
     /**
      * @ORM\OneToMany(targetEntity="lesson", mappedBy="user")
@@ -82,6 +81,7 @@ class user extends BaseUser
         parent::__construct();
         $this->commentes = new \Doctrine\Common\Collections\ArrayCollection();
         $this->memoes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->studentlesson = new \Doctrine\Common\Collections\ArrayCollection();
         // your own logic
     }
     /**
@@ -299,29 +299,6 @@ class user extends BaseUser
     }
 
     /**
-     * Set studentlesson
-     *
-     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
-     * @return user
-     */
-    public function setStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson = null)
-    {
-        $this->studentlesson = $studentlesson;
-
-        return $this;
-    }
-
-    /**
-     * Get studentlesson
-     *
-     * @return \Edu\EleraningBundle\Entity\studentlesson 
-     */
-    public function getStudentlesson()
-    {
-        return $this->studentlesson;
-    }
-
-    /**
      * Add lessones
      *
      * @param \Edu\EleraningBundle\Entity\lesson $lessones
@@ -357,5 +334,38 @@ class user extends BaseUser
     public function __toString()
     {
         return $this->getFname()." ".$this->getLname();
+    }
+
+    /**
+     * Add studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     * @return user
+     */
+    public function addStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
+    {
+        $this->studentlesson[] = $studentlesson;
+
+        return $this;
+    }
+
+    /**
+     * Remove studentlesson
+     *
+     * @param \Edu\EleraningBundle\Entity\studentlesson $studentlesson
+     */
+    public function removeStudentlesson(\Edu\EleraningBundle\Entity\studentlesson $studentlesson)
+    {
+        $this->studentlesson->removeElement($studentlesson);
+    }
+
+    /**
+     * Get studentlesson
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getStudentlesson()
+    {
+        return $this->studentlesson;
     }
 }

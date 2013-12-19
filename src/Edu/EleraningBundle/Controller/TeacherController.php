@@ -68,13 +68,17 @@ class TeacherController extends Controller {
 
         $form = $this->createForm(new postType(),$post)
             ->add('submit', 'submit', array('label' => 'ثبت'));
-        $form->handleRequest($request);
 
-        if ($form->isValid()) {
-            // perform some action, such as saving the task to the database
-            $em->persist($post);
-            $em->flush();
-            return $this->redirect($this->generateUrl('t_showposts'));
+        if($request->isMethod("POST"))
+        {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                // perform some action, such as saving the task to the database
+                $em->persist($post);
+                $em->flush();
+                return $this->redirect($this->generateUrl('t_showposts'));
+            }
         }
         return $this->render('EduEleraningBundle:Teacher:addpost.html.twig',array('form' => $form->createView()));
     }
