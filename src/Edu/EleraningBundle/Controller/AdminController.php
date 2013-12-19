@@ -33,7 +33,7 @@ class AdminController extends Controller {
             $em->persist($uni);
             $em->persist($modir);
             $em->flush();
-            return $this->redirect($this->generateUrl('a_main'));
+            return $this->redirect($this->generateUrl('showuniversities'));
         }
         return $this->render('EduEleraningBundle:Admin:addmanager.html.twig',array('form' => $form->createView()));
     }

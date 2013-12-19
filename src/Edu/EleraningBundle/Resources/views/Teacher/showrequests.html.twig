@@ -1,0 +1,26 @@
+{% extends 'EduEleraningBundle:Teacher:main.html.twig' %}
+
+
+{% block main %}
+        <table class="table table-bordered table-hover" style="text-align: center;direction: rtl">
+            <thead>
+                <tr>
+                    <th>نام دانشحو</th>
+                    <th>درس</th>
+                    <th>اقدامات</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in requests %}
+                    <tr>
+                        <td>{{ request.useres }}</td>
+                        <td>{{ request.lessones.name }}</td>
+                        <td>
+                            <a href="{{ path('t_acceptrequest',{'reqid':request.id}) }}">پذیرفتن</a><br/>
+                            <a href="{{ path('t_rejectrequest',{'reqid':request.id}) }}">رد کردن</a><br/>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

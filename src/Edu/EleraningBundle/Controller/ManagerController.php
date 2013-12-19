@@ -41,7 +41,7 @@ class ManagerController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($teacher);
             $em->flush();
-            return $this->redirect($this->generateUrl('m_main'));
+            return $this->redirect($this->generateUrl('showteachers'));
         }
         return $this->render('EduEleraningBundle:Manager:addteacher.html.twig',array('form' => $form->createView()));
     }
@@ -96,7 +96,7 @@ class ManagerController extends Controller {
             $em = $this->getDoctrine()->getManager();
             $em->persist($group);
             $em->flush();
-            return $this->redirect($this->generateUrl('m_main'));
+            return $this->redirect($this->generateUrl('showgroups'));
         }
         return $this->render('EduEleraningBundle:Manager:addgroup.html.twig',array('form' => $form->createView()));
     }

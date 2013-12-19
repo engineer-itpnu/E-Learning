@@ -1,0 +1,27 @@
+{% extends 'EduEleraningBundle:Teacher:main.html.twig' %}
+
+
+{% block main %}
+    <a href="{{ path('t_addpost',{'lesid':lesid}) }}" class="btn btn-primary">ثبت پست جدید</a> <br/>
+
+    <table class="table table-bordered table-hover" style="text-align: center;direction: rtl">
+        <thead>
+            <tr>
+                <th>کد</th>
+                <th>موضوع</th>
+                <th>متن</th>
+                <th>کاربر</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.subject }}</td>
+                    <td>{{ post.text }}</td>
+                    <td>{{ post.useres }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

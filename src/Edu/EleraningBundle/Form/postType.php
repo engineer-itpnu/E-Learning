@@ -15,13 +15,8 @@ class postType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('subject')
-            ->add('text')
-            ->add('file')
-            ->add('type')
-            ->add('public')
-            ->add('useres')
-            ->add('lessones')
+            ->add('subject',null,array('label'=>'موضوع'))
+            ->add('text','textarea',array('label'=>'متن'))
         ;
     }
     

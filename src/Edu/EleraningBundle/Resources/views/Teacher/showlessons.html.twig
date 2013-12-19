@@ -1,0 +1,33 @@
+{% extends 'EduEleraningBundle:Teacher:main.html.twig' %}
+
+
+{% block main %}
+        <table class="table table-bordered table-hover" style="text-align: center;direction: rtl">
+            <thead>
+                <tr>
+                    <th>کد درس</th>
+                    <th>نام </th>
+                    <th>توضیحات</th>
+                    <th>رمز ثبت نام</th>
+                    <th>گروه آموزشی</th>
+                    <th>اقدامات</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lesson in lessons %}
+                    <tr>
+                        <td>{{ lesson.id }}</td>
+                        <td>{{ lesson.name }}</td>
+                        <td>{{ lesson.explaination }}</td>
+                        <td>{{ lesson.password }}</td>
+                        <td>{{ lesson.grouplesson.name }}</td>
+                        <td>
+                            <a href="{{ path('t_showstudents',{'lesid':lesson.id}) }}">مشاهده لیست دانشجویان</a><br/>
+                            <a href="{{ path('t_showposts',{'lesid':lesson.id}) }}">مشاهده پست های این درس</a><br/>
+                            <a href="{{ path('t_addpost',{'lesid':lesson.id}) }}">ثبت پست جدید</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

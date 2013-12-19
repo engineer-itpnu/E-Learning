@@ -38,21 +38,21 @@ class post
     /**
      * @var string
      *
-     * @ORM\Column(name="file", type="string", length=255)
+     * @ORM\Column(name="file", type="string", length=255, nullable=true)
      */
     private $file;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="type", type="integer")
+     * @ORM\Column(name="type", type="integer", nullable=true)
      */
     private $type;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="public", type="boolean")
+     * @ORM\Column(name="public", type="boolean", nullable=true)
      */
     private $public;
 
@@ -197,29 +197,6 @@ class post
     public function getPublic()
     {
         return $this->public;
-    }
-
-    /**
-     * Set touser
-     *
-     * @param string $touser
-     * @return post
-     */
-    public function setTouser($touser)
-    {
-        $this->touser = $touser;
-
-        return $this;
-    }
-
-    /**
-     * Get touser
-     *
-     * @return string 
-     */
-    public function getTouser()
-    {
-        return $this->touser;
     }
 
     /**

@@ -1,3 +1,31 @@
 t_main:
     pattern: /
     defaults: { _controller: EduEleraningBundle:Teacher:main}
+
+t_showlessons:
+    pattern: /lessons
+    defaults: { _controller: EduEleraningBundle:Teacher:showlessons}
+
+t_showstudents:
+    pattern: /{lesid}/students
+    defaults: { _controller: EduEleraningBundle:Teacher:showStudents}
+
+t_showposts:
+    pattern: /{lesid}/posts
+    defaults: { _controller: EduEleraningBundle:Teacher:showPosts}
+
+t_addpost:
+    pattern: /{lesid}/addpost
+    defaults: { _controller: EduEleraningBundle:Teacher:addPost}
+
+t_showrequests:
+    pattern: /showrequests
+    defaults: { _controller: EduEleraningBundle:Teacher:showRequests}
+
+t_acceptrequest:
+    pattern: /acceptrequest/{reqid}/
+    defaults: { _controller: EduEleraningBundle:Teacher:acceptRequest}
+
+t_rejectrequest:
+    pattern: /rejectrequest/{reqid}/
+    defaults: { _controller: EduEleraningBundle:Teacher:rejectRequest}
