@@ -1,6 +1,6 @@
-{% extends 'EduEleraningBundle::layout.html.twig' %}
+{% extends 'EduEleraningBundle::main.html.twig' %}
 
-{% block Body %}
+{% block body %}
 
     <div class="container">
         <h2 class="text-center">
@@ -8,65 +8,7 @@
         </h2>
 
         <div class="adduniform">
-            <form action="{{ path("adduniversity") }}" method="post" {{ form_enctype(form) }}>
-                <br><br>
-
-                <div class="row-fluid">
-                    <div class="span13 offset1">
-                        {{ form_widget(form.name, {'attr':{'class':'span9','placeholder':'نام دانشگاه' }}) }}
-                        <label class="name">
-                            نام دانشگاه
-                        </label>
-                    </div>
-                </div>
-                <br><br>
-
-                <div class="row-fluid">
-                    <div class="span13 offset1">
-                        {{ form_widget(form.phone, {'attr':{'class':'span9','placeholder':'شماره تماس' }}) }}
-                        <label class="name">
-                            شماره تماس
-                        </label>
-                    </div>
-                </div>
-                <br><br>
-
-                <div class="row-fluid">
-                    <div class="span13 offset1">
-                        {{ form_widget(form.website, {'attr':{'class':'span9','placeholder':'وب سایت' }}) }}
-                        <label class="name">
-                            وب سایت
-                        </label>
-                    </div>
-                </div>
-                <br><br>
-
-                <div class="row-fluid">
-                    <div class="span10 offset1 datetime">
-                        {{ form_widget(form.enddate, {'attr':{'class':'span9' }}) }}
-                        <label class="name">
-                            تاریخ پایان قرارداد
-                        </label>
-                    </div>
-                </div>
-                <br><br><br><br><br><br><br>
-
-                <div class="row-fluid">
-                    <div class="span3 offset5">
-                        {{ form_widget(form.save, {'attr':{'class':'btn-primary span9' }}) }}
-                    </div>
-                </div>
-            </form>
+            {{ form(form) }}
         </div>
     </div>
-    {#<form action='{{ path("a_main") }}'>#}
-    {#<ul>#}
-    {#<li><input type="text" placeholder="نام دانشگاه"></li>#}
-    {#<li><input type="text" placeholder="شماره تماس"></li>#}
-    {#<li><input type="text" placeholder="وب سایت"></li>#}
-    {#<li><input type="text" placeholder="تاریخ انتقضا"></li>#}
-    {#<li><input type="text" placeholder="مدیر دانشگاه"></li>#}
-    {#<li><button type="submit" class="btn-danger">ثبت دانشگاه</button></li>#}
-    {#</ul>#}
-    {#</form>#}
 {% endblock %}
