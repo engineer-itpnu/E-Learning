@@ -1,9 +1,6 @@
 edu_eleraning_homepage:
     pattern:  /
     defaults: { _controller: EduEleraningBundle:Default:index }
-main:
-    pattern:  /main
-    defaults: { _controller: EduEleraningBundle:Default:main }
 
 admin:
     resource: "@EduEleraningBundle/Resources/config/Admin/routing.yml"
@@ -20,34 +17,3 @@ teacher:
 student:
     resource: "@EduEleraningBundle/Resources/config/Student/routing.yml"
     prefix: /student
-
-EduEleraningBundle_comment:
-    resource: "@EduEleraningBundle/Resources/config/routing/comment.yml"
-    prefix:   /comment
-EduEleraningBundle_financial:
-    resource: "@EduEleraningBundle/Resources/config/routing/financial.yml"
-    prefix:   /financial
-EduEleraningBundle_grouplesson:
-    resource: "@EduEleraningBundle/Resources/config/routing/grouplesson.yml"
-    prefix:   /grouplesson
-EduEleraningBundle_lesson:
-    resource: "@EduEleraningBundle/Resources/config/routing/lesson.yml"
-    prefix:   /lesson
-EduEleraningBundle_memo:
-    resource: "@EduEleraningBundle/Resources/config/routing/memo.yml"
-    prefix:   /memo
-EduEleraningBundle_news:
-    resource: "@EduEleraningBundle/Resources/config/routing/news.yml"
-    prefix:   /news
-EduEleraningBundle_post:
-    resource: "@EduEleraningBundle/Resources/config/routing/post.yml"
-    prefix:   /post
-EduEleraningBundle_studentlesson:
-    resource: "@EduEleraningBundle/Resources/config/routing/studentlesson.yml"
-    prefix:   /studentlesson
-EduEleraningBundle_university:
-    resource: "@EduEleraningBundle/Resources/config/routing/university.yml"
-    prefix:   /university
-EduEleraningBundle_user:
-    resource: "@EduEleraningBundle/Resources/config/routing/user.yml"
-    prefix:   /user

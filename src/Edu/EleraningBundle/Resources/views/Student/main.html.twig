@@ -1,0 +1,32 @@
+{% extends 'EduEleraningBundle::layout1.html.twig' %}
+
+{% block menu %}
+    <li>
+        <a href="{{ path('s_main') }}">
+            <span class="icon"><i class="icon-dashboard"></i></span>
+            <span class="text">
+            داشبورد
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="">
+            <span class="icon"><i class="icon-magic"></i></span>
+            <span class="text">
+            مشاهده دروس
+            </span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+    <div class="span2 center">
+        <div class="stat-box medium-blue">
+            <i class="icon-book icon-large"></i>
+            <span class="stat-text">
+                            مشاهده دروس
+            </span>
+        </div>
+    </div>
+{% endblock %}
