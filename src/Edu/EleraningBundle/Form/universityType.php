@@ -2,6 +2,7 @@
 
 namespace Edu\EleraningBundle\Form;
 
+use Edu\EleraningBundle\Form\Type\RegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
@@ -19,6 +20,7 @@ class universityType extends AbstractType
             ->add('phone',null,array("label"=>"تلفن"))
             ->add('website',null,array("label"=>"وب سایت"))
             ->add('enddate',null,array("label"=>"تاریخ انقضا"))
+            ->add('useres',"collection",array("type"=>new RegistrationFormType('Edu\EleraningBundle\Entity\user')))
         ;
     }
     

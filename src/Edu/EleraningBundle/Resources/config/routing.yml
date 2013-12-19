@@ -53,3 +53,6 @@ EduEleraningBundle_user:
     prefix:   /user
 
 
+testttttt:
+    pattern:  /test
+    defaults: { _controller: EduEleraningBundle:Default:test }

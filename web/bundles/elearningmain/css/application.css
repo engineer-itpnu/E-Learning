@@ -1888,7 +1888,7 @@ img {
   /* Responsive img (ensure img don't scale beyond their parents) */
   max-width: 100%;
   /* Part 1: Set a maxium relative to the parent */
- /* width: auto\9;*/
+  width: auto\9;
   /* IE7-8 need help adjusting responsive img */
   height: auto;
   /* Part 2: Scale the height according to the width, otherwise you get stretching */
@@ -3877,7 +3877,7 @@ table th[class*="span"],
 .table-hover tbody tr.info:hover td {
   background-color: #c4e3f3; }
 
-/* line 18, bootstrap/_sprites.scss
+/* line 18, bootstrap/_sprites.scss */
 [class^="icon-"],
 [class*=" icon-"] {
   display: inline-block;
@@ -3886,10 +3886,10 @@ table th[class*="span"],
   *margin-right: .3em;
   line-height: 14px;
   vertical-align: text-top;
-  /*background-image: url(image-path(.html"glyphicons-halflings.png"));
+  background-image: url(image-path(.html"glyphicons-halflings.png"));
   background-position: 14px 14px;
   background-repeat: no-repeat;
-  margin-top: 1px; }*/
+  margin-top: 1px; }
 
 /* White icons with optional class, or on hover/active states of certain elements */
 /* line 44, bootstrap/_sprites.scss */
@@ -3905,8 +3905,8 @@ table th[class*="span"],
 .dropdown-menu > .active > a > [class^="icon-"],
 .dropdown-menu > .active > a > [class*=" icon-"],
 .dropdown-submenu:hover > a > [class^="icon-"],
-.dropdown-submenu:hover > a > [class*=" icon-"]
-  /*background-image: url(image-path(.html"glyphicons-halflings-white.png")); }*/
+.dropdown-submenu:hover > a > [class*=" icon-"] {
+  background-image: url(image-path(.html"glyphicons-halflings-white.png")); }
 
 /* line 48, bootstrap/_sprites.scss */
 .icon-glass {
@@ -4524,7 +4524,7 @@ table th[class*="span"],
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding-box;
- /* -moz-background-clip: padding;*/
+  -moz-background-clip: padding;
   background-clip: padding-box; }
   /* line 64, bootstrap/_dropdowns.scss */
   .dropdown-menu.pull-right {
@@ -6776,7 +6776,7 @@ input[type="submit"].btn {
   text-align: left;
   background-color: white;
   -webkit-background-clip: padding-box;
- /* -moz-background-clip: padding;*/
+  -moz-background-clip: padding;
   background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -13962,10 +13962,10 @@ nav.main-nav > ul > li {
   /* line 40, ui/sidebar.css.scss */
   nav.main-nav > ul > li > a {
     padding: 7px 0;
-    padding-left: 12px;
+    padding-right: 12px;
     display: block;
     color: #ddd;
-    text-align: left;
+    text-align: right;
     text-decoration: none; }
     /* line 49, ui/sidebar.css.scss */
     nav.main-nav > ul > li > a:hover, nav.main-nav > ul > li > a:active {
@@ -13992,7 +13992,6 @@ nav#primary {
   width: 140px;
   height: 100%;
   position: fixed;
-  margin-top: 42px;
   font-size: 11px; }
   /* line 77, ui/sidebar.css.scss */
   nav#primary i:before {
@@ -14003,7 +14002,7 @@ nav#primary {
   /* line 86, ui/sidebar.css.scss */
   nav#primary > ul > li > a {
     line-height: 36px;
-    opacity: .9; }
+    opacity: .9;}
     /* line 90, ui/sidebar.css.scss */
     nav#primary > ul > li > a .icon {
       display: inline-block;
@@ -14013,7 +14012,8 @@ nav#primary {
     nav#primary > ul > li > a .text {
       display: inline-block;
       width: 65%;
-      margin-left: 7px; }
+      margin-left: 7px;
+      padding-right: 5px;}
     /* line 101, ui/sidebar.css.scss */
     nav#primary > ul > li > a i {
       display: inline-block;
@@ -14056,8 +14056,8 @@ ul.secondary {
       height: 30px;
       line-height: 30px;
       font-size: 1em;
-      text-align: left;
-      padding-left: 30px;
+      text-align: right;
+      padding-right: 30px;
       text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5); }
       /* line 146, ui/sidebar.css.scss */
       ul.secondary li > a:hover, ul.secondary li > a.active, ul.secondary li > a:active {
@@ -14260,7 +14260,7 @@ ul.breadcrumbs {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
- /* -moz-background-clip: padding;*/
+  -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   border: 1px solid #aaaaaa;
@@ -14350,13 +14350,13 @@ ul.breadcrumbs {
   font-size: 1em; }
 
 /* line 116, chosen/chosen.css.scss */
-/*.chzn-container-single .chzn-drop {
+.chzn-container-single .chzn-drop {
   -webkit-border-radius: 0 0 4px 4px;
   -moz-border-radius: 0 0 4px 4px;
   border-radius: 0 0 4px 4px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
-  background-clip: padding-box; }*/
+  background-clip: padding-box; }
 
 /* @end */
 /* line 126, chosen/chosen.css.scss */
@@ -14417,7 +14417,7 @@ ul.breadcrumbs {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
- /* -moz-background-clip: padding;*/
+  -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   background-color: #e4e4e4;
@@ -17893,9 +17893,9 @@ Copyright (c) 2012 Dan Eden*/
 .modal-single .modal-image:hover:after {
   display: none; }
 
-/* line 66, extensions/bootstrap-image-gallery.css.scss
+/* line 66, extensions/bootstrap-image-gallery.css.scss */
 .modal-loading .modal-image {
-  background: url(../img/loading.html) center no-repeat; }*/
+  background: url(../img/loading.html) center no-repeat; }
 
 /* line 69, extensions/bootstrap-image-gallery.css.scss */
 .modal-gallery.fade .modal-image {

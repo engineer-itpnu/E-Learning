@@ -54,7 +54,7 @@ class user extends BaseUser
      * @ORM\ManyToOne(targetEntity="university", inversedBy="user")
      * @ORM\JoinColumn(name="university_id", referencedColumnName="id")
      */
-    protected $universities;
+    protected $university;
 
     /**
      * @ORM\OneToMany(targetEntity="comment", mappedBy="user")
@@ -210,26 +210,26 @@ class user extends BaseUser
     }
 
     /**
-     * Set universities
+     * Set university
      *
-     * @param \Edu\EleraningBundle\Entity\university $universities
+     * @param \Edu\EleraningBundle\Entity\university $university
      * @return user
      */
-    public function setUniversities(\Edu\EleraningBundle\Entity\university $universities = null)
+    public function setUniversity(\Edu\EleraningBundle\Entity\university $university = null)
     {
-        $this->universities = $universities;
+        $this->university = $university;
 
         return $this;
     }
 
     /**
-     * Get universities
+     * Get university
      *
      * @return \Edu\EleraningBundle\Entity\university 
      */
-    public function getUniversities()
+    public function getUniversity()
     {
-        return $this->universities;
+        return $this->university;
     }
 
     /**
@@ -352,5 +352,10 @@ class user extends BaseUser
     public function getLessones()
     {
         return $this->lessones;
+    }
+
+    public function __toString()
+    {
+        return $this->getFname()." ".$this->getLname();
     }
 }

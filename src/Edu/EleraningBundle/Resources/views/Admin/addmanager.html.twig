@@ -8,7 +8,10 @@
         </h2>
 
         <div class="adduniform">
-            {{ form(form) }}
+            {{ form_start(form) }}
+            {{ form_widget(form.useres[0]) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}

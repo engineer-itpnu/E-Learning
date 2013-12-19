@@ -13,7 +13,6 @@ class RegistrationFormType extends BaseType
             ->add('lname',null,array("label"=>"نام خانوادگی"))
             ->add('phone',null,array("label"=>"تلفن"))
             ->add('melicode',null,array("label"=>"کدملی"))
-            ->add("submit","submit",array("label"=>"ثبت نام"))
         ;
     }
 

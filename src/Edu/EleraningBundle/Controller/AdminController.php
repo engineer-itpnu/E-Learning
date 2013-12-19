@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: omidnematollahi
- * Date: 12/16/13
- * Time: 1:03 AM
- */
-
 namespace Edu\EleraningBundle\Controller;
 
 use Edu\EleraningBundle\Entity\university;
+use Edu\EleraningBundle\Entity\user;
 use Edu\EleraningBundle\Form\universityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -24,15 +18,20 @@ class AdminController extends Controller {
     public function adduniversityAction(Request $request)
     {
         $uni = new university();
+        $uni->setRegdate(new \DateTime());
+        $modir = new user();
+        $modir->addRole("ROLE_MANAGER");
+        $uni->addUsere($modir);
+        $modir->setUniversity($uni);
 
         $form = $this->createForm(new universityType(), $uni)
         ->add('submit', 'submit', array('label' => 'ثبت'));
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $uni->setRegdate(new \DateTime());
             $em = $this->getDoctrine()->getManager();
             $em->persist($uni);
+            $em->persist($modir);
             $em->flush();
             return $this->redirect($this->generateUrl('a_main'));
         }
