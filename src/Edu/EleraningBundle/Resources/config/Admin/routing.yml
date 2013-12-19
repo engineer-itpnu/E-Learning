@@ -2,9 +2,9 @@ a_main:
     pattern: /
     defaults: { _controller: EduEleraningBundle:Admin:admin}
 
-addmanager:
+adduniversity:
     pattern: /addmanager
-    defaults: { _controller: EduEleraningBundle:Admin:addmanager}
+    defaults: { _controller: EduEleraningBundle:Admin:adduniversity}
 
 showuniversities:
     pattern: /showuniversity

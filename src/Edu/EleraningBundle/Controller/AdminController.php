@@ -20,7 +20,7 @@ class AdminController extends Controller {
         return $this->render('EduEleraningBundle:Admin:adminmain.html.twig');
     }
 
-    public function addmanagerAction(Request $request)
+    public function adduniversityAction(Request $request)
     {
         $uni = new university();
         $uni->setName('Write a blog post');
