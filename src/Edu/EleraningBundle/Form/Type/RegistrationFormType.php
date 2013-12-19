@@ -9,10 +9,11 @@ class RegistrationFormType extends BaseType
     {
         parent::buildForm($builder, $options);
         $builder
-            ->add('fname')
-            ->add('lname')
-            ->add('phone')
-            ->add('melicode')
+            ->add('fname',null,array("label"=>"نام"))
+            ->add('lname',null,array("label"=>"نام خانوادگی"))
+            ->add('phone',null,array("label"=>"تلفن"))
+            ->add('melicode',null,array("label"=>"کدملی"))
+            ->add("submit","submit",array("label"=>"ثبت نام"))
         ;
     }
 

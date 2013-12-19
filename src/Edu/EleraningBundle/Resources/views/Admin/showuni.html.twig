@@ -1,0 +1,46 @@
+{% extends 'EduEleraningBundle::main.html.twig' %}
+
+{% block stylesheet %}
+    <style type="text/css">
+        .form {
+            margin: 5px auto 0px auto;
+            padding-top: 50px;
+            direction: rtl;
+            border: 1px solid;
+            border-radius: 20px;
+        }
+        form {
+            padding:  0 30px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    <div class="form" style="background-color: #7E7E7E; width: 480px;height: 450px;text-align: right;">
+        <table>
+            <thead>
+                <tr>
+                    <th>کد دانشگاه</th>
+                    <th>نام دانشگاه</th>
+                    <th>تلفن دانشگاه</th>
+                    <th>وب سایت</th>
+                    <th>تاریخ ثبت</th>
+                    <th>تاریخ انقضا</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for university in universities %}
+                    <tr>
+                        <td>{{ university.id }}</td>
+                        <td>{{ university.name }}</td>
+                        <td>{{ university.phone }}</td>
+                        <td>{{ university.website }}</td>
+                        <td>{{ university.regdate|date("Y-m-d") }}</td>
+                        <td>{{ university.enddate|date("Y-m-d") }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

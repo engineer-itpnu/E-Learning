@@ -24,7 +24,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/Admin/, role: ROLE_ADMIN }
-        - { path: ^/Manager/, role: ROLE_MANAGER }
-        - { path: ^/Teacher/, role: ROLE_TEACHER }
-        - { path: ^/Student/, role: ROLE_STUDENT }
+        - { path: ^/admin, role: ROLE_ADMIN }
+        - { path: ^/manager, role: ROLE_MANAGER }
+        - { path: ^/teacher, role: ROLE_TEACHER }
+        - { path: ^/student, role: ROLE_STUDENT }

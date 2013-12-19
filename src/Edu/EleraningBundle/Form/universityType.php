@@ -15,11 +15,10 @@ class universityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('phone')
-            ->add('website')
-            ->add('enddate')
-            ->add('regdate')
+            ->add('name',null,array("label"=>"نام دانشگاه"))
+            ->add('phone',null,array("label"=>"تلفن"))
+            ->add('website',null,array("label"=>"وب سایت"))
+            ->add('enddate',null,array("label"=>"تاریخ انقضا"))
         ;
     }
     

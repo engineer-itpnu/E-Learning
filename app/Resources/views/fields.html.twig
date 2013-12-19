@@ -1,0 +1,79 @@
+{% extends 'form_table_layout.html.twig' %}
+
+{% block form_widget_simple %}
+    {% spaceless %}
+        {% set type = type|default('text') %}
+        <input
+            type="{{ type }}"
+            {{ block('widget_attributes') }}
+            {% if value is not empty %}value="{{ value }}"{% endif %}
+            placeholder="{{ label|trans({}, translation_domain)|replace({":":""}) }}"
+        />
+    {% endspaceless %}
+{% endblock form_widget_simple %}
+
+{% block form_label %}
+    {% spaceless %}
+        {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' control-label  label label-important')|trim}) %}
+        {% set label_attr = label_attr|merge({'style': (label_attr.style|default('') ~ 'text-align: center;')|trim}) %}
+        {% if label is not sameas(false) %}
+            {% if not compound %}
+                {% set label_attr = label_attr|merge({'for': id}) %}
+            {% endif %}
+            {% if required %}
+                {% set label_attr = label_attr|merge({'class': (label_attr.class|default('') ~ ' required')|trim}) %}
+            {% endif %}
+            {% if label is empty %}
+                {% set label = name|humanize %}
+            {% endif %}
+            <label{% for attrname, attrvalue in label_attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}>{{ label|trans({}, translation_domain) }}</label>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_label %}
+
+{% block form_errors %}
+    <div style="color: darkred">
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error.message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endspaceless %}
+    </div>
+{% endblock form_errors %}
+
+{% block form_start %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' form-horizontal')|trim}) %}
+        {% set method = method|upper %}
+        {% if method in ["GET", "POST"] %}
+            {% set form_method = method %}
+        {% else %}
+            {% set form_method = "POST" %}
+        {% endif %}
+        <form name="{{ form.vars.name }}" method="{{ form_method|lower }}" action="{{ action }}"{% for attrname, attrvalue in attr %} {{ attrname }}="{{ attrvalue }}"{% endfor %}{% if multipart %} enctype="multipart/form-data"{% endif %}>
+        {% if form_method != method %}
+            <input type="hidden" name="_method" value="{{ method }}" />
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_start %}
+
+{% block button_attributes %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': (attr.class|default('') ~ ' btn btn-large btn-primary')|trim}) %}
+        id="{{ id }}" name="{{ full_name }}"{% if disabled %} disabled="disabled"{% endif -%}
+        {%- for attrname, attrvalue in attr -%}
+            {{- " " -}}
+            {%- if attrname in ['placeholder', 'title'] -%}
+                {{- attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+            {%- elseif attrvalue is sameas(true) -%}
+                {{- attrname }}="{{ attrname }}"
+            {%- elseif attrvalue is not sameas(false) -%}
+                {{- attrname }}="{{ attrvalue }}"
+            {%- endif -%}
+        {%- endfor -%}
+    {% endspaceless %}
+{% endblock button_attributes %}
