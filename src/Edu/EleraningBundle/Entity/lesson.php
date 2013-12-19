@@ -24,7 +24,14 @@ class lesson
     /**
      * @var string
      *
-     * @ORM\Column(name="explaination", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="explaination", type="string", length=255, nullable=true)
      */
     private $explaination;
 
@@ -37,21 +44,21 @@ class lesson
 
     /**
      * @ORM\ManyToOne(targetEntity="grouplesson", inversedBy="lesson")
-     * @ORM\JoinColumn(name="groupid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="groupid", referencedColumnName="id", nullable=false)
      */
     private $grouplesson;
 
     /**
      * @ORM\ManyToOne(targetEntity="studentlesson", inversedBy="lesson")
-     * @ORM\JoinColumn(name="groupid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="studentlessonid", referencedColumnName="id", nullable=true)
      */
     private $studentlesson;
 
     /**
      * @ORM\ManyToOne(targetEntity="user", inversedBy="lesson")
-     * @ORM\JoinColumn(name="teacherid", referencedColumnName="id", nullable=true)
+     * @ORM\JoinColumn(name="teacherid", referencedColumnName="id", nullable=false)
      */
-    private $teacherid;
+    private $teacher;
 
     /**
      * @ORM\OneToMany(targetEntity="post", mappedBy="lesson")
@@ -170,26 +177,26 @@ class lesson
     }
 
     /**
-     * Set teacherid
+     * Set teacher
      *
-     * @param \Edu\EleraningBundle\Entity\user $teacherid
+     * @param \Edu\EleraningBundle\Entity\user $teacher
      * @return lesson
      */
-    public function setTeacherid(\Edu\EleraningBundle\Entity\user $teacherid = null)
+    public function setTeacher(\Edu\EleraningBundle\Entity\user $teacher = null)
     {
-        $this->teacherid = $teacherid;
+        $this->teacher = $teacher;
 
         return $this;
     }
 
     /**
-     * Get teacherid
+     * Get teacher
      *
      * @return \Edu\EleraningBundle\Entity\user 
      */
-    public function getTeacherid()
+    public function getTeacher()
     {
-        return $this->teacherid;
+        return $this->teacher;
     }
 
     /**
@@ -223,5 +230,28 @@ class lesson
     public function getPostes()
     {
         return $this->postes;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return lesson
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

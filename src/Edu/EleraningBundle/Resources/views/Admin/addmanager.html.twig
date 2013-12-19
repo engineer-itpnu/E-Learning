@@ -1,17 +1,14 @@
-{% extends 'EduEleraningBundle::main.html.twig' %}
+{% extends 'EduEleraningBundle:Admin:adminmain.html.twig' %}
 
-{% block body %}
+{% block main %}
+    <h2 style="text-align: center">
+        اضافه کردن دانشگاه
+    </h2>
 
-    <div class="container">
-        <h2 class="text-center">
-            اضافه کردن دانشگاه
-        </h2>
-
-        <div class="adduniform">
-            {{ form_start(form) }}
-            {{ form_widget(form.useres[0]) }}
-            {{ form_widget(form) }}
-            {{ form_end(form) }}
-        </div>
+    <div class="adduniform">
+        {{ form_start(form) }}
+        {{ form_widget(form.useres[0]) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
     </div>
 {% endblock %}

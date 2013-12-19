@@ -1,0 +1,25 @@
+{% extends 'EduEleraningBundle:Manager:main.html.twig' %}
+
+
+{% block main %}
+        <table class="table table-bordered table-hover" style="text-align: center;direction: rtl">
+            <thead>
+                <tr>
+                    <th>کد گروه</th>
+                    <th>نام </th>
+                    <th>توضیحات</th>
+                    <th>اقدامات</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                    <tr>
+                        <td>{{ group.id }}</td>
+                        <td>{{ group.name }}</td>
+                        <td>{{ group.explaination }}</td>
+                        <td><a href="{{ path("showlessons",{'groupid':group.id}) }}">مشاهده دروس</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

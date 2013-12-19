@@ -51,8 +51,3 @@ EduEleraningBundle_university:
 EduEleraningBundle_user:
     resource: "@EduEleraningBundle/Resources/config/routing/user.yml"
     prefix:   /user
-
-
-testttttt:
-    pattern:  /test
-    defaults: { _controller: EduEleraningBundle:Default:test }

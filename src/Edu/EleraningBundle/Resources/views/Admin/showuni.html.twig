@@ -1,6 +1,6 @@
-{% extends 'EduEleraningBundle::main.html.twig' %}
+{% extends 'EduEleraningBundle:Admin:adminmain.html.twig' %}
 
-{% block stylesheet %}
+{% block css %}
     <style type="text/css">
         .form {
             margin: 5px auto 0px auto;
@@ -15,10 +15,9 @@
     </style>
 {% endblock %}
 
-{% block body %}
+{% block main %}
 
-    <div class="form" style="background-color: #7E7E7E; width: 480px;height: 450px;text-align: right;">
-        <table>
+        <table class="table table-bordered table-hover" style="text-align: center;direction: rtl">
             <thead>
                 <tr>
                     <th>کد دانشگاه</th>
@@ -42,5 +41,4 @@
                 {% endfor %}
             </tbody>
         </table>
-    </div>
 {% endblock %}

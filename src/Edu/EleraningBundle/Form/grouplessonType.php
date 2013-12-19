@@ -15,9 +15,8 @@ class grouplessonType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('explaination')
-            ->add('universityid')
+            ->add('name',null,array('label'=>'نام گروه'))
+            ->add('explaination',null,array('label'=>'توضیح'))
         ;
     }
     

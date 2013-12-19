@@ -5,3 +5,23 @@ m_main:
 addteacher:
     pattern: /addteacher
     defaults: { _controller: EduEleraningBundle:Manager:addteacher}
+
+showteachers:
+    pattern: /showteachers
+    defaults: { _controller: EduEleraningBundle:Manager:showTeachers}
+
+addgroups:
+    pattern: /addgroups
+    defaults: { _controller: EduEleraningBundle:Manager:addGroup}
+
+showgroups:
+    pattern: /showgroups
+    defaults: { _controller: EduEleraningBundle:Manager:showGroups}
+
+addlesson:
+    pattern: /addlesson
+    defaults: { _controller: EduEleraningBundle:Manager:addLesson}
+
+showlessons:
+    pattern: /showlessons/{groupid}/
+    defaults: { _controller: EduEleraningBundle:Manager:showlessons}

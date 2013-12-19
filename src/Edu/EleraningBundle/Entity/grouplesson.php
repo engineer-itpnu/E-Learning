@@ -31,7 +31,7 @@ class grouplesson
     /**
      * @var string
      *
-     * @ORM\Column(name="explaination", type="string", length=255)
+     * @ORM\Column(name="explaination", type="string", length=255, nullable=true)
      */
     private $explaination;
 
@@ -45,13 +45,11 @@ class grouplesson
      * @ORM\ManyToOne(targetEntity="university", inversedBy="grouplesson")
      * @ORM\JoinColumn(name="university_id", referencedColumnName="id")
      */
-    private $universityid;
+    private $university;
 
     public function __construct()
     {
-        parent::__construct();
         $this->lessones = new \Doctrine\Common\Collections\ArrayCollection();
-        // your own logic
     }
 
 
@@ -145,25 +143,25 @@ class grouplesson
     }
 
     /**
-     * Set universityid
+     * Set university
      *
-     * @param \Edu\EleraningBundle\Entity\university $universityid
+     * @param \Edu\EleraningBundle\Entity\university $university
      * @return grouplesson
      */
-    public function setUniversityid(\Edu\EleraningBundle\Entity\university $universityid = null)
+    public function setUniversity(\Edu\EleraningBundle\Entity\university $university = null)
     {
-        $this->universityid = $universityid;
+        $this->university = $university;
 
         return $this;
     }
 
     /**
-     * Get universityid
+     * Get university
      *
      * @return \Edu\EleraningBundle\Entity\university 
      */
-    public function getUniversityid()
+    public function getUniversity()
     {
-        return $this->universityid;
+        return $this->university;
     }
 }

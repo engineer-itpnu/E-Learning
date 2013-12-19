@@ -1,9 +1,66 @@
-manager
-<html>
-<head>
+{% extends 'EduEleraningBundle::layout1.html.twig' %}
 
-</head>
-<body>
-<a href="{{ path("addteacher") }}">افزودن استاد</a>
-</body>
-</html>
+{% block menu %}
+    <li>
+        <a href="{{ path('m_main') }}">
+            <span class="icon"><i class="icon-dashboard"></i></span>
+            <span class="text">
+            داشبورد
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('addgroups') }}">
+            <span class="icon"><i class="icon-book"></i></span>
+            <span class="text">
+            ثبت گروه درسی
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('showgroups') }}">
+            <span class="icon"><i class="icon-magic"></i></span>
+            <span class="text">
+            مشاهده گروه های درسی
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('addlesson') }}">
+            <span class="icon"><i class="icon-money"></i></span>
+            <span class="text">
+ثبت درس جدید
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('addteacher') }}">
+            <span class="icon"><i class="icon-bell"></i></span>
+            <span class="text">
+            ثبت استاد
+            </span>
+        </a>
+    </li>
+
+    <li>
+        <a href="{{ path('showteachers') }}">
+            <span class="icon"><i class="icon-bell"></i></span>
+                <span class="text">
+                مشاهده اساتید
+                </span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block main %}
+    <div class="span2 center">
+        <div class="stat-box medium-blue">
+            <i class="icon-book icon-large"></i>
+            <span class="stat-text">مشاهده اساتید</span>
+        </div>
+    </div>
+{% endblock %}
