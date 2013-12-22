@@ -13,7 +13,7 @@ use Edu\EleraningBundle\Entity\lesson;
 use Edu\EleraningBundle\Entity\user;
 use Edu\EleraningBundle\Form\grouplessonType;
 use Edu\EleraningBundle\Form\lessonType;
-use Edu\EleraningBundle\Form\Type\RegistrationFormType;
+use Edu\EleraningBundle\Form\Type\RegisterFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -30,8 +30,9 @@ class ManagerController extends Controller {
         $teacher = new user();
         $teacher->setUniversity($this->getUser()->getUniversity());
         $teacher->addRole("ROLE_TEACHER");
+        $teacher->setEnabled(true);
 
-        $form = $this->createForm(new RegistrationFormType('Edu\EleraningBundle\Entity\user'),$teacher)
+        $form = $this->createForm(new RegisterFormType('Edu\EleraningBundle\Entity\user'),$teacher)
             ->add('submit', 'submit', array('label' => 'ثبت'));
 
         if($request->isMethod("POST"))

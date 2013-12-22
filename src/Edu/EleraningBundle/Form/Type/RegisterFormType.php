@@ -3,7 +3,7 @@ namespace Edu\EleraningBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use FOS\UserBundle\Form\Type\RegistrationFormType as BaseType;
 
-class RegistrationFormType extends BaseType
+class RegisterFormType extends BaseType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -13,7 +13,6 @@ class RegistrationFormType extends BaseType
             ->add('lname',null,array("label"=>"نام خانوادگی"))
             ->add('phone',null,array("label"=>"تلفن"))
             ->add('melicode',null,array("label"=>"کدملی"))
-            ->add('university',null,array("label"=>"دانشگاه",'property' => 'name','required'=>true))
         ;
     }
 

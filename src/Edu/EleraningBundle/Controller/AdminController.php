@@ -21,6 +21,7 @@ class AdminController extends Controller {
         $uni->setRegdate(new \DateTime());
         $modir = new user();
         $modir->addRole("ROLE_MANAGER");
+        $modir->setEnabled(true);
         $uni->addUsere($modir);
         $modir->setUniversity($uni);
 

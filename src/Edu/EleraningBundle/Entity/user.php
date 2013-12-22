@@ -137,7 +137,7 @@ class user extends BaseUser
      */
     public function getLanme()
     {
-        return $this->lanme;
+        return $this->lname;
     }
 
     /**

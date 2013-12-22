@@ -77,7 +77,7 @@ class TeacherController extends Controller {
                 // perform some action, such as saving the task to the database
                 $em->persist($post);
                 $em->flush();
-                return $this->redirect($this->generateUrl('t_showposts'));
+                return $this->redirect($this->generateUrl('t_showposts',array('lesid'=>$lesid)));
             }
         }
         return $this->render('EduEleraningBundle:Teacher:addpost.html.twig',array('form' => $form->createView()));
